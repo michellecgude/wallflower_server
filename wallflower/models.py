@@ -9,9 +9,9 @@ from django.contrib.auth.models import AbstractUser
 class User(AbstractUser):  # auth/login-related fields
     
     # DATABASE FIELDS
-    USERNAME_FIELD = 'email'
+    USERNAME_FIELD = 'username'
     email = models.EmailField(("email address"), unique=True) # changes email to unique, blank to false.
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['email']
     # examples:
     # email (if used for login)
     # extra permissions
