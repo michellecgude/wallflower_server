@@ -1,1 +1,1 @@
-web: gunicorn wallflower.wsgi --log-file -
+web: gunicorn wallflower_server.wsgi --log-file -
