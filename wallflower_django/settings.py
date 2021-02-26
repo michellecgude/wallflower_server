@@ -19,7 +19,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True if os.environ['MODE'] == 'dev' else False
-DEBUG = True
+DEBUG = False
 
 # ALLOWED_HOSTS = ['*']
 
@@ -177,8 +177,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 # Whitenoise pckg to help serving static files
-STATIC_ROOT=os.path.join(BASE_DIR, "static/")
+# The URL to use when referring to static files (where they will be served from)
 STATIC_URL = '/static/'
+
+# The absolute path to the directory where collectstatic will collect static files for deployment.
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Profile via Abstract User Auth
 # https://docs.djangoproject.com/en/3.1/topics/auth/customizing/#substituting-a-custom-user-model
