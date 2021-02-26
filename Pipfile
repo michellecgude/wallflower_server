@@ -17,6 +17,7 @@ whitenoise = "*"
 django-extensions = "*"
 django-rest-auth = "*"
 django-allauth = "*"
+django-shortcuts = "*"
 
 [dev-packages]
 

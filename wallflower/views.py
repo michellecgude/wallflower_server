@@ -1,26 +1,78 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.contrib.auth.models import User
+from django.shortcuts import get_object_or_404
+from rest_framework import viewsets
+
+from rest_framework.decorators import api_view
+from rest_framework.serializers import ModelSerializer
+from django.http import JsonResponse
+from rest_framework.views import APIView
+
 from .models import User, UserProfile, Mood, Habit, Meditation, UpliftingContent
+from .serializers import UserSerializer, UserProfileSerializer, MoodSerializer, HabitSerializer, MeditationSerializer, UpliftingContentSerializer
 
-# Create your views here.
+class UserProfileView(viewsets.ModelViewSet):
+    serializer_class = UserProfileSerializer
+    queryset = UserProfile.objects.all()
+
+class MoodView(viewsets.ModelViewSet):
+    serializer_class = MoodSerializer
+    queryset = Mood.objects.all()
+
+class HabitView(viewsets.ModelViewSet):
+    serializer_class = HabitSerializer
+    queryset = Habit.objects.all()
+
+class MeditationView(viewsets.ModelViewSet):
+    serializer_class = MeditationSerializer
+    queryset = Meditation.objects.all()
+
+class UpliftingContentView(viewsets.ModelViewSet):
+    serializer_class = UpliftingContentSerializer
+    queryset = UpliftingContent.objects.all()
 
 
 
-# Views are "request handler functions". They recieve HTTP requests and return HTTP responses.
-# Views access the data needed to satisfy requests via models and delegate the formatting of the response to templates.
 
-# In full, views are the heart of the application. In between recieving and sending HTTP requests,
-# they also marshall other resources of the framework to access databases, render templates, etc.
 
-# Like all view functions, it receives an HttpRequest object as a param (request), and returns an HttpResponse.
-# Here's an example of such:
-# def index(request):
-#     # Get an HttpRequest - the request parameter
-#     # perform operations using information from the request.
-#     # Return HttpResponse
-#     return HttpResponse('Hello from Django!')
 
-# Querying the data in views.py is how the Djando model communicates with views by providing a simple query API for searching the associated database.
-# These queries can match against a number of fields at a time using different criteria and can support complex statements (for example, you can specify
-# a search that a specific model have a field that starts with or ends with, etc.)
-# https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Introduction#querying_data_views.py
+
+
+
+
+
+
+
+
+
+# # user auth?
+# class UserProfileFormView(APIView):
+#     # Assume you have a model named UserProfile
+#     # And a serializer for that model named UserProfileSerializer
+#     # This is the view to let users update their profile info.
+#     # Like E-Mail, Birth Date etc.
+
+#     def get_object(self, pk):
+#         try:
+#             return UserProfile.objects.get(pk=pk)
+#         except:
+#             return None
+
+#     # this method will be called when your request is GET
+#     # we will use this to fetch field names and values while creating our form on React side
+#     def get(self, request, pk, format=None):
+#         user = self.get_object(pk)
+#         if not user:
+#             return JsonResponse({'status': 0, 'message': 'User with this id not found'})
+
+#         # You have a serializer that you specified which fields should be available in fo
+#         serializer = UserProfileSerializer(user)
+#         # And here we send it those fields to our react component as json
+#         # Check this json data on React side, parse it, render it as form.
+#         return JsonResponse(serializer.data, safe=False)
+
+#     # this method will be used when user try to update or save their profile
+#     # for POST requests.
+#     def post(self, request, pk, format=None):
+#         try:
+#             user = self.get_object(pk)

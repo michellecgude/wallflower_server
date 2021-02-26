@@ -1,19 +1,16 @@
-# A URL mapper. This file allows the request to be sent to the correct view.
-# It defines a list of mappings between routes (specific URL patterns) and corresponding view functions.
-# If an HTTP Request is received that has a URL matching a specific pattern, then the associated view function will be called and passed the request. 
+# backend urls
 
 from django.contrib import admin
 from django.urls import include, path
+from rest_framework import routers
+from wallflower import views
 
-# urlpatterns is an object that has a list with a path() and/or re_path() functions.
-# path() and re_path() take two arguments.
-#   1) The first is the route that will be matched. Angle brackets are used to define parts of the URL that will
-#      be captured and passed through the view function as named arguments.
-#   2) The second is another function that will be called when the pattern is matched. The funcion is defined with name='{corresponding view function...}'.
-        # Between these two arguments is where the function can be found in the view file.
-
-# The re_path function uses flexible pattern matching known as "regular expression" (discuss later.)
-
+router = routers.DefaultRouter()
+router.register(r'userprofiles', views.UserProfileView, 'userprofile')
+router.register(r'moods', views.MoodView, 'mood')
+router.register(r'habits', views.HabitView, 'habit')
+router.register(r'meditations', views.MeditationView, 'meditation')
+router.register(r'upliftingcontents', views.UpliftingContentView, 'upliftingcontent')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
