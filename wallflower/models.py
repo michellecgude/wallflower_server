@@ -42,10 +42,10 @@ class UserProfile(models.Model):  # non-auth related/cosmetic fields
     class Meta:
         verbose_name = "User Profile"
         verbose_name_plural = "User Profiles"
-    
+
     # TO STRING METHOD
     def __str__(self):
-        return "Profile " + str(self.id) + " - " + self.user
+        return self.first_name
 
 
 class Mood(models.Model):
