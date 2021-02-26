@@ -10,24 +10,24 @@ class UserSerializer(ModelSerializer):
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserProfile
-        fields = ('first_name', 'last_name', 'date_created', 'role')
+        fields = ("id", "user", "first_name", "last_name", "date_created", "role")
 
 class MoodSerializer(serializers.ModelSerializer):
     class Meta:
         model = Mood
-        fields = ('name', 'created_at', 'note_entry')
+        fields = ("id", "user", "name", "created_at", "note_entry", "role") 
 
 class HabitSerializer(serializers.ModelSerializer):
     class Meta:
         model = Habit
-        fields = ('name', 'description', 'created_at', 'note_entry')
+        fields = ("id", "user", "name", "description", "created_at", "note_entry")
 
 class MeditationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Meditation
-        fields = ('name', 'purpose', 'benefit', 'length', 'type_of_meditation')
+        fields = ("id", "user", "name", "purpose", "benefit", "length", "type_of_meditation")
 
 class UpliftingContentSerializer(serializers.ModelSerializer):
     class Meta:
         model = UpliftingContent
-        fields = ('title', 'description', 'img_url', 'src', 'article_link')
+        fields = ("id", "user", "description", "img_url", "src", "article_link")

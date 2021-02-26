@@ -14,5 +14,6 @@ router.register(r'upliftingcontents', views.UpliftingContentView, 'upliftingcont
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', include(router.urls)),
     path('api/v1/wallflowerusers/', include('wallflower.urls')),
 ]
