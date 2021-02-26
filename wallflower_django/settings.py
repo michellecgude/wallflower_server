@@ -18,19 +18,22 @@ if os.path.isfile(dotenv_file):
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG = True if os.environ['MODE'] == 'dev' else False
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['*']
 
 # Specifies localhost port 3000 where the React
 # server will be running is safe to receive requests
 # from.
 # DONT FORGET TO CHANGE THIS/ADD THE HEROKU DEPLOYED FRONTEND LINK!
 
-CORS_ALLOWED_ORIGINS = [    
-'http://localhost:3000'
-]
+# CORS_ALLOWED_ORIGINS = [    
+# 'http://localhost:3000'
+# ]
 
+# the following is temporary until you showcase your frontend 
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Application definition
 INSTALLED_APPS = [
@@ -83,8 +86,9 @@ REST_FRAMEWORK = {
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-     'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -112,10 +116,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'wallflower_django.wsgi.application'
 
+# Configure Django App for Heroku.
+import django_heroku
+django_heroku.settings(locals())
+
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -126,6 +133,11 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#     'default': dj_database_url.config(conn_max_age=600)
+# }
+
+# DATABASE_URL=postgres://wallfloweruser:wallflower@localhost:8000/wallflower
 
 
 # Password validation
@@ -164,6 +176,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+# Whitenoise pckg to help serving static files
+STATIC_ROOT=os.path.join(BASE_DIR, "static/")
 STATIC_URL = '/static/'
 
 # Profile via Abstract User Auth

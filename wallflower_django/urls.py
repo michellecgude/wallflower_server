@@ -16,4 +16,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('api/v1/wallflowerusers/', include('wallflower.urls')),
+
+    # changing it to json?
+    # path('userprofilejson/', views.user_profile_list.as_view(), name='profiles_list')
+
 ]
