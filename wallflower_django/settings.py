@@ -1,7 +1,6 @@
 from pathlib import Path
 import os
 import dotenv
-import django_heroku
 import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -19,22 +18,19 @@ if os.path.isfile(dotenv_file):
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True if os.environ['MODE'] == 'dev' else False
-DEBUG = False
+DEBUG = True
 
-# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 # Specifies localhost port 3000 where the React
 # server will be running is safe to receive requests
 # from.
 # DONT FORGET TO CHANGE THIS/ADD THE HEROKU DEPLOYED FRONTEND LINK!
 
-# CORS_ALLOWED_ORIGINS = [    
-# 'http://localhost:3000'
-# ]
+CORS_ALLOWED_ORIGINS = [    
+'http://localhost:3000'
+]
 
-# the following is temporary until you showcase your frontend 
-CORS_ALLOW_ALL_ORIGINS = True
 
 # Application definition
 INSTALLED_APPS = [
@@ -60,9 +56,6 @@ INSTALLED_APPS = [
     # LOCAL APPS
     'wallflower',
 ]
-
-# Configure Django App for Heroku.
-django_heroku.settings(locals())
 
 # Django All Auth config. Add all of this.
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -90,9 +83,8 @@ REST_FRAMEWORK = {
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -121,9 +113,9 @@ TEMPLATES = [
 WSGI_APPLICATION = 'wallflower_django.wsgi.application'
 
 
-
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -134,11 +126,6 @@ DATABASES = {
     }
 }
 
-# DATABASES = {
-#     'default': dj_database_url.config(conn_max_age=600)
-# }
-
-# DATABASE_URL=postgres://wallfloweruser:wallflower@localhost:8000/wallflower
 
 
 # Password validation
@@ -177,21 +164,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-# Whitenoise pckg to help serving static files
-# The URL to use when referring to static files (where they will be served from)
-# STATIC_URL = 'static/css/style.css/'
-
-# # The absolute path to the directory where collectstatic will collect static files for deployment.
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-# # Extra places for collectstatic to find static files.
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, 'static'),
-# )
-
-# # Simplified static file serving.
-# # https://warehouse.python.org/project/whitenoise/
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_URL = '/static/'
 
 # Profile via Abstract User Auth
 # https://docs.djangoproject.com/en/3.1/topics/auth/customizing/#substituting-a-custom-user-model
