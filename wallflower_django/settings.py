@@ -77,7 +77,10 @@ REST_FRAMEWORK = {
    	# or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'],
     'DATETIME_FORMAT': "%m/%d/%Y %I:%M%P",
-    'DEFAULT_AUTHENTICATION_CLASSES': ['rest_framework.authentication.TokenAuthentication',],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication'
+    ],
 }
 
 
