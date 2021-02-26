@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import User, UserProfile, Mood, Habit, Meditation, UpliftingContent
 
 # Create your views here.
+
+
 
 # Views are "request handler functions". They recieve HTTP requests and return HTTP responses.
 # Views access the data needed to satisfy requests via models and delegate the formatting of the response to templates.
