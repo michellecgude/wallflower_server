@@ -178,7 +178,7 @@ USE_TZ = True
 
 # Whitenoise pckg to help serving static files
 # The URL to use when referring to static files (where they will be served from)
-STATIC_URL = '/static/'
+STATIC_URL = 'static/css/style.css/'
 
 # The absolute path to the directory where collectstatic will collect static files for deployment.
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
