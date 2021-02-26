@@ -1,6 +1,7 @@
 from pathlib import Path
 import os
 import dotenv
+import django_heroku
 import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -15,7 +16,7 @@ if os.path.isfile(dotenv_file):
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True if os.environ['MODE'] == 'dev' else False
@@ -59,6 +60,9 @@ INSTALLED_APPS = [
     # LOCAL APPS
     'wallflower',
 ]
+
+# Configure Django App for Heroku.
+django_heroku.settings(locals())
 
 # Django All Auth config. Add all of this.
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -116,9 +120,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'wallflower_django.wsgi.application'
 
-# Configure Django App for Heroku.
-import django_heroku
-django_heroku.settings(locals())
 
 
 # Database
