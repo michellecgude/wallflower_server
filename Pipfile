@@ -9,6 +9,11 @@ psycopg2-binary = "*"
 djangorestframework = "*"
 coverage = "*"
 python-dotenv = "*"
+dj-database-url = "*"
+gunicorn = "*"
+djoser = "*"
+django-cors-headers = "*"
+whitenoise = "*"
 
 [dev-packages]
 
