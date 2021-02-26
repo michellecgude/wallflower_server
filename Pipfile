@@ -18,6 +18,8 @@ django-extensions = "*"
 django-rest-auth = "*"
 django-allauth = "*"
 django-shortcuts = "*"
+decouple = "*"
+django-heroku = "*"
 
 [dev-packages]
 

@@ -1,3 +1,16 @@
+
 .env
+*.log
+*.pot
+*.pyc
+media
 Pipfile.lock
+__pycache__/
 settings.py
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+settings.sql
+
+staticfiles
+static
