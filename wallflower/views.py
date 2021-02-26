@@ -1,8 +1,5 @@
-from rest_framework import viewsets
-from rest_framework import permissions
-
-from django.http import JsonResponse
-
+from django.shortcuts import render
+from rest_framework import generics, viewsets, permissions
 from .models import User, UserProfile, Mood, Habit, Meditation, UpliftingContent
 from .serializers import UserSerializer, UserProfileSerializer, MoodSerializer, HabitSerializer, MeditationSerializer, UpliftingContentSerializer
 
@@ -10,36 +7,38 @@ class UserProfileView(viewsets.ModelViewSet):
     serializer_class = UserProfileSerializer
     queryset = UserProfile.objects.all()
     permission_classes = (permissions.AllowAny,)
+    
+class UserProfileList(generics.ListCreateAPIView):
+    queryset = UserProfile.objects.all()
+    serializer_class = UserProfileSerializer
+class UserProfileDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = UserProfile.objects.all()
+    serializer_class = UserProfileSerializer
 
-# need this for json backend ?
-# def user_profile_list(request):
-#     profiles = UserProfile.objects.all().values("id", "user", "first_name", "last_name", "date_created", "role")
-#     profiles_list = list(profiles)
-#     return JsonResponse(user_profile_list, safe=False)
-
-
-class MoodView(viewsets.ModelViewSet):
-    serializer_class = MoodSerializer
+class MoodList(generics.ListCreateAPIView):
     queryset = Mood.objects.all()
-    permission_classes = (permissions.AllowAny,)
+    serializer_class = MoodSerializer
+class MoodDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Mood.objects.all()
+    serializer_class = MoodSerializer
 
-
-class HabitView(viewsets.ModelViewSet):
-    serializer_class = HabitSerializer
+class HabitList(generics.ListCreateAPIView):
     queryset = Habit.objects.all()
-    permission_classes = (permissions.AllowAny,)
+    serializer_class = HabitSerializer
+class HabitDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Habit.objects.all()
+    serializer_class = HabitSerializer
 
-
-class MeditationView(viewsets.ModelViewSet):
-    serializer_class = MeditationSerializer
+class MeditationList(generics.ListCreateAPIView):
     queryset = Meditation.objects.all()
-    permission_classes = (permissions.AllowAny,)
+    serializer_class = MeditationSerializer
+class MeditationDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Meditation.objects.all()
+    serializer_class = MeditationSerializer
 
-
-class UpliftingContentView(viewsets.ModelViewSet):
-    serializer_class = UpliftingContentSerializer
+class UpliftingContentList(generics.ListCreateAPIView):
     queryset = UpliftingContent.objects.all()
-    permission_classes = (permissions.AllowAny,)
-
-
-
+    serializer_class = UpliftingContentSerializer
+class UpliftingContentDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = UpliftingContent.objects.all()
+    serializer_class = UpliftingContentSerializer
