@@ -86,14 +86,18 @@ ACCOUNT_UNIQUE_EMAIL = True
 
 # Rest Framework config.
 REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-   	# or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'],
-    'DATETIME_FORMAT': "%m/%d/%Y %I:%M%P",
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
-        'rest_framework.authentication.SessionAuthentication'
-    ],
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ),
+}
+
+JWT_AUTH = {
+    'JWT_RESPONSE_PAYLOAD_HANDLER': 'wallflower_django.utils.my_jwt_response_handler'
 }
 
 

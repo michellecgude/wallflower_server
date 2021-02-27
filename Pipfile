@@ -20,6 +20,7 @@ django-allauth = "*"
 django-shortcuts = "*"
 decouple = "*"
 django-heroku = "*"
+djangorestframework-jwt = "*"
 
 [dev-packages]
 

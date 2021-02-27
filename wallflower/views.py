@@ -1,7 +1,30 @@
 from django.shortcuts import render
-from rest_framework import generics, viewsets, permissions
+from django.http import HttpResponseRedirect
+from django.contrib.auth.models import User
+from rest_framework import permissions, status, generics, viewsets
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework.views import APIView
 from .models import User, UserProfile, Mood, Habit, Meditation, UpliftingContent
-from .serializers import UserSerializer, UserProfileSerializer, MoodSerializer, HabitSerializer, MeditationSerializer, UpliftingContentSerializer
+from .serializers import UserSerializer, UserSerializerWithToken, UserProfileSerializer, MoodSerializer, HabitSerializer, MeditationSerializer, UpliftingContentSerializer
+
+@api_view(['GET'])
+def current_user(request): # defining a method that determines the current user by their jwt token, reutrns their data via a http response.
+    
+    serializer = UserSerializer(request.user)
+    return Response(serializer.data)
+
+
+class UserList(APIView): # creates a new user
+
+    permission_classes = (permissions.AllowAny,)
+
+    def post(self, request, format=None):
+        serializer = UserSerializerWithToken(data=request.data)
+        if serializer.is_valid(): # serializer checks if incoming data is valid, will return a create or error response depending upon input.
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class UserProfileView(viewsets.ModelViewSet):
     serializer_class = UserProfileSerializer
