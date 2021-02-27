@@ -10,6 +10,6 @@ router.register(r'userprofiles', views.UserProfileView, 'userprofile')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('/', include('wallflower.urls')),
+    path('', include('wallflower.urls')),
     path('api/v1/wallflowerusers/', include('wallflower.urls')),
 ]
