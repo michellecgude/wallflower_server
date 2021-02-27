@@ -3,13 +3,19 @@ import os
 import dotenv
 import dj_database_url
 
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+
 
 # Add .env variables anywhere before SECRET_KEY
 dotenv_file = os.path.join(BASE_DIR, ".env")
 if os.path.isfile(dotenv_file):
     dotenv.load_dotenv(dotenv_file)
+
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -17,22 +23,23 @@ if os.path.isfile(dotenv_file):
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ['SECRET_KEY']
 
+
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True if os.environ['MODE'] == 'dev' else False
 
+
+
 ALLOWED_HOSTS = ['*']
 
-# Specifies localhost port 3000 where the React
-# server will be running is safe to receive requests
-# from.
-# DONT FORGET TO CHANGE THIS/ADD THE HEROKU DEPLOYED FRONTEND LINK!
+
 
 CORS_ALLOWED_ORIGINS = [    
 'http://localhost:3000'
 ]
 
 
-# Application definition
+
 INSTALLED_APPS = [
     # INSTALLED APPS
     'django.contrib.admin',
@@ -57,6 +64,8 @@ INSTALLED_APPS = [
     'wallflower',
 ]
 
+
+
 # Django All Auth config.
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 AUTHENTICATION_BACKENDS = (
@@ -64,12 +73,16 @@ AUTHENTICATION_BACKENDS = (
     "allauth.account.auth_backends.AuthenticationBackend",
 )
 
+
+
 SITE_ID = 1 
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_UNIQUE_EMAIL = True
+
+
 
 # Rest Framework config.
 REST_FRAMEWORK = {
