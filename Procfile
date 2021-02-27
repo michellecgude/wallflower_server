@@ -1,0 +1,1 @@
+web: gunicorn wallflower_django.wsgi
