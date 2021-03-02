@@ -6,21 +6,12 @@ name = "pypi"
 [packages]
 django = "*"
 psycopg2-binary = "*"
-djangorestframework = "*"
-coverage = "*"
-python-dotenv = "*"
 dj-database-url = "*"
 gunicorn = "*"
 djoser = "*"
 django-cors-headers = "*"
 whitenoise = "*"
-django-extensions = "*"
-django-rest-auth = "*"
-django-allauth = "*"
-django-shortcuts = "*"
-decouple = "*"
-django-heroku = "*"
-djangorestframework-jwt = "*"
+djangorestframework = "*"
 
 [dev-packages]
 

@@ -2,19 +2,13 @@ from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 
-# IMPORTANT NOTE WHEN PASSING USER:
-# When you define a foreign key or many-to-many relations to the User model, you should specify the custom model using the AUTH_USER_MODEL setting. Like so:
-# User = models.ForeignKey(settings.AUTH_USER_MODEL)
 
 class User(AbstractUser):  # auth/login-related fields
     
     # DATABASE FIELDS
-    USERNAME_FIELD = 'username'
     email = models.EmailField(("email address"), unique=True) # changes email to unique, blank to false.
-    REQUIRED_FIELDS = ['email']
-    # examples:
-    # email (if used for login)
-    # extra permissions
+    REQUIRED_FIELDS = ['username']
+    USERNAME_FIELD = 'email'
 
     # META
     class Meta:
@@ -49,28 +43,6 @@ class UserProfile(models.Model):  # non-auth related/cosmetic fields
 
 
 class Mood(models.Model):
-    # HAPPY = 'HAPPY'
-    # COMFORTABLE = 'COMFORTABLE'
-    # CALM = 'CALM'
-    # CONTENT = 'CONTENT'
-    # NEUTRAL = 'NEUTRAL'
-    # ANXIOUS = 'ANXIOUS'
-    # SAD = 'SAD'
-    # STRESSED = 'STRESSED'
-    # OVERWHELMED = 'OVERWHELMED'
-    # TIRED = 'TIRED'
-    # MOOD_TYPE_CHOICES = (
-    #     (HAPPY, 'Happy')
-    #     (COMFORTABLE, 'Comfortable')
-    #     (CALM, 'Calm')
-    #     (CONTENT, 'Content')
-    #     (NEUTRAL, 'Neutral')
-    #     (ANXIOUS, 'Anxious')
-    #     (SAD, 'Sad')
-    #     (STRESSED, 'Stressed')
-    #     (OVERWHELMED, 'Overwhelmed')
-    #     (TIRED, 'Tired')
-    # )
 
     # RELATIONSHIP
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="user_mood")
@@ -152,6 +124,5 @@ class UpliftingContent(models.Model):
     # TO STRING METHOD
     def __str__(self):
         return "User's Uplifting Content " + str(self.id) + " - " + self.title
-
 
 
