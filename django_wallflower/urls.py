@@ -7,9 +7,7 @@ urlpatterns = [
     path('', include('djoser.urls.authtoken')),
     path('admin/', admin.site.urls),
     path('api-auth', include('rest_framework.urls', namespace='rest_framework')),
-    path('usersapi/v1/', include('usersapi.urls'))
+    path('usersapi/', include('usersapi.urls')),
+    path('userdata/', include('wallflower.urls')), # includes app's urlpatterns
 
-    # path('users/', include('users.urls')), # includes app's urlpatterns
-
-    # path('', include('wallflower.urls')), # includes app's urlpatterns
 ]
