@@ -33,9 +33,11 @@ INSTALLED_APPS = [
     
     'rest_framework',
     'rest_framework.authtoken',
+    'rest_auth',
 
     'wallflower', # app that holds wallflower content/data
     'users', # app that holds user data
+    'usersapi', # app/api that holds endpoints for user registration, login, etc
 
 ]
 
