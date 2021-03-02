@@ -1,0 +1,1 @@
+web: django_wallflower.wsgi.application
