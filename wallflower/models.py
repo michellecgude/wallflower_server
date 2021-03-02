@@ -57,7 +57,7 @@ class Mood(models.Model):
     # META
     class Meta:
         verbose_name = "User Mood"
-        verbose_name_plural = "User's Moods"
+        verbose_name_plural = "User Moods"
 
     # TO STRING METHOD
     def __str__(self):
@@ -77,7 +77,7 @@ class Habit(models.Model):
     # META
     class Meta:
         verbose_name = "User's Habit"
-        verbose_name_plural = "User's Habits"
+        verbose_name_plural = "User Habits"
 
     # TO STRING METHOD
     def __str__(self):
@@ -98,7 +98,7 @@ class Meditation(models.Model):
     # META
     class Meta:
         verbose_name = "User's Meditation"
-        verbose_name_plural = "User's Meditations"
+        verbose_name_plural = "User Meditations"
 
     # TO STRING METHOD
     def __str__(self):
@@ -119,7 +119,7 @@ class UpliftingContent(models.Model):
     # META
     class Meta:
         verbose_name = "User's Uplifting Content"
-        verbose_name_plural = "User's Uplifting Content"
+        verbose_name_plural = "User Uplifting Content"
 
     # TO STRING METHOD
     def __str__(self):
