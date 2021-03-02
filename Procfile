@@ -1,1 +1,1 @@
-web: django_wallflower.wsgi.application
+web: gunicorn django_wallflower.wsgi.application
