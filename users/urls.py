@@ -1,7 +1,6 @@
 # app urls
-
 from django.urls import path, include
-from wallflower import views
+from users import views
 
 urlpatterns = [
   path('', include('djoser.urls')),

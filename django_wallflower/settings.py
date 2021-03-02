@@ -34,7 +34,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
 
-    'wallflower', # your app
+    'wallflower', # app that holds wallflower content/data
+    'users', # app that holds user data
+
 ]
 
 MIDDLEWARE = [
@@ -144,10 +146,10 @@ DJOSER = {
     'LOGIN_FIELD': 'email',
     'USER_CREATE_PASSWORD_RETYPE': True,
     'SERIALIZERS': {
-        'user_create': 'wallflower.serializers.UserCreateSerializer',
-        'user': 'wallflower.serializers.UserCreateSerializer'
+        'user_create': 'users.serializers.UserCreateSerializer',
+        'user': 'users.serializers.UserCreateSerializer'
     }
 }
 
 # AUTH USER MODEL CONFIG
-AUTH_USER_MODEL='wallflower.User'
+AUTH_USER_MODEL='users.User'

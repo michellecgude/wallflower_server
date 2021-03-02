@@ -1,15 +1,4 @@
 from django.contrib import admin
-from django.contrib.auth import get_user_model
-from django.contrib.auth.admin import UserAdmin
+from .models import Mood, Habit, Meditation, UpliftingContent
 
-from .forms import AbstractUserCreationForm, AbstractUserChangeForm
-from .models import User, UserProfile, Mood, Habit, Meditation, UpliftingContent
-
-class AbstractUserAdmin(UserAdmin):
-    add_form = AbstractUserCreationForm
-    form = AbstractUserChangeForm
-    model = User
-    list_display = ['email', 'username']
-
-admin.site.register(User, AbstractUserAdmin)
-admin.site.register([UserProfile, Mood, Habit, Meditation, UpliftingContent])
+admin.site.register([Mood, Habit, Meditation, UpliftingContent])

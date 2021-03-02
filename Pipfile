@@ -12,6 +12,7 @@ djoser = "*"
 django-cors-headers = "*"
 whitenoise = "*"
 djangorestframework = "*"
+django-rest-auth = "*"
 
 [dev-packages]
 
