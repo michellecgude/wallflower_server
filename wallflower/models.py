@@ -55,6 +55,7 @@ class Meditation(models.Model):
     benefit = models.CharField(max_length=200, verbose_name="Benefit")
     length = models.DurationField(verbose_name="Meditation Length")
     type_of_meditation = models.CharField(max_length=200, verbose_name="Type of Meditation")
+    meditation_link = models.URLField(max_length=500, verbose_name="Meditation URL")
 
     # META
     class Meta:
