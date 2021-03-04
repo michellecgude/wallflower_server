@@ -8,7 +8,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 
 DEBUG = True if os.environ['MODE'] == 'dev' else False
 
-ALLOWED_HOSTS = ['https://wallflowerclient.herokuapp.com/']
+ALLOWED_HOSTS = ['*']
 
 CORS_ALLOWED_ORIGINS = ['https://wallflowerclient.herokuapp.com/']
 
