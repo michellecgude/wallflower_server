@@ -8,9 +8,11 @@ SECRET_KEY = os.environ['SECRET_KEY']
 
 DEBUG = True if os.environ['MODE'] == 'dev' else False
 
-ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["localhost", "192.168.0.121", "127.0.0.1"]
 
-CORS_ALLOWED_ORIGINS = ['https://wallflowerclient.herokuapp.com/']
+# CORS_ALLOWED_ORIGINS = ['https://wallflowerclient.herokuapp.com/']
+CORS_ALLOWED_ALL_ORIGINS = 'True'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -22,23 +24,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'corsheaders',
-    'djoser',
-    
     'rest_framework',
-    'rest_framework.authtoken',
-    'rest_auth',
-    'allauth',
-    'allauth.account',
-    'rest_auth.registration',
+    'djoser',
 
     'wallflower', # app that holds wallflower content/data
     'users', # app that holds user data
-    'usersapi', # app/api that holds endpoints for user registration, login, etc
-
 ]
-
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -116,15 +107,9 @@ STATIC_ROOT=os.path.join(BASE_DIR, "static/")
 # DJANGO REST FRAMEWORK
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        # What we'll use for our API
-        'rest_framework.authentication.TokenAuthentication',
-        # What we'll use for the browseable API
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
         'rest_framework.authentication.SessionAuthentication',
-        # Basic Authentication should be removed in production
-        'rest_framework.authentication.BasicAuthentication',
     ],
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
