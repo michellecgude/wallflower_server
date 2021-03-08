@@ -8,11 +8,11 @@ SECRET_KEY = os.environ['SECRET_KEY']
 
 DEBUG = True if os.environ['MODE'] == 'dev' else False
 
-# ALLOWED_HOSTS = ['*']
-ALLOWED_HOSTS = ["localhost", "192.168.0.121", "127.0.0.1"]
+ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ["localhost", "192.168.0.121", "127.0.0.1"]
 
-# CORS_ALLOWED_ORIGINS = ['https://wallflowerclient.herokuapp.com/']
-CORS_ALLOWED_ALL_ORIGINS = 'True'
+CORS_ALLOWED_ORIGINS = ['https://wallflowerclient.herokuapp.com/']
+# CORS_ALLOWED_ALL_ORIGINS = 'True'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
