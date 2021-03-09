@@ -5,15 +5,28 @@ from django.conf import settings
 
 class Mood(models.Model):
 
+    # CHOICES
+    MOOD_TYPE_CHOICES = (
+    ('happy', 'Happy'),
+    ('comfortable', 'Comfortable'),
+    ('calm', 'Calm'),
+    ('content', 'Content'),
+    ('neutral', 'Neutral'),
+    ('anxious', 'Anxious'),
+    ('sad', 'Sad'),
+    ('stressed', 'Stressed'),
+    ('overwhelmed', 'Overwhelmed'),
+    ('tired', 'Tired')
+)
+
     # RELATIONSHIP
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="user_mood")
 
     # DATABASE FIELDS
     name = models.CharField(max_length=100, verbose_name="Mood Name")
-    # mood_type = models.CharField('type', max_length=10, choices=MOOD_TYPE_CHOICES)
+    mood_type = models.CharField('type', max_length=30, choices=MOOD_TYPE_CHOICES)
     created_at = models.DateTimeField(auto_now=False, auto_now_add=False, verbose_name="Mood Log Created On")
     note_entry = models.CharField(max_length=100, verbose_name="Note On Mood Log")
-    # value = models.FloatField(("")) possible feature to conditionally render frontend dash for the future...
 
     # META
     class Meta:

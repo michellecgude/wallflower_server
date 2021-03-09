@@ -45,7 +45,7 @@ CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
     'https://wall-flower-api.herokuapp.com',
-    '.herokuapp.com',
+    # '.herokuapp.com',
     # eventually add heroku link...
 )
 
