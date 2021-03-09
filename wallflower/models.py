@@ -23,7 +23,6 @@ class Mood(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="user_mood")
 
     # DATABASE FIELDS
-    name = models.CharField(max_length=100, verbose_name="Mood Name")
     mood_type = models.CharField('type', max_length=30, choices=MOOD_TYPE_CHOICES)
     created_at = models.DateTimeField(auto_now=False, auto_now_add=False, verbose_name="Mood Log Created On")
     note_entry = models.CharField(max_length=100, verbose_name="Note On Mood Log")
@@ -35,7 +34,7 @@ class Mood(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-        return "User Mood " + str(self.id) + " - " + self.name
+        return "User Mood " + str(self.id) + " - " + self.mood_type
 
 class Habit(models.Model):
 
