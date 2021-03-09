@@ -11,8 +11,7 @@ DEBUG = True if os.environ['MODE'] == 'dev' else False
 CORS_ORIGIN_ALLOW_ALL = False
 
 CORS_ORIGIN_WHITELIST = (
-    'http://localhost:3000/',
-    'localhost:3000/',
+    'http://localhost:3000',
     # eventually add heroku link...
 )
 
