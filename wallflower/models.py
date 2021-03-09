@@ -58,15 +58,37 @@ class Habit(models.Model):
     
 class Meditation(models.Model):
 
+    # CHOICES
+    BENEFIT_CHOICES = (
+    ('happiness', 'Happiness'),
+    ('acceptance', 'Acceptance'),
+    ('resilience', 'Resilience'),
+    ('relaxation', 'Relaxation'),
+    ('letting go', 'Letting Go'),
+    ('depression', 'Depression'),
+    ('anxiety', 'Anxiety'),
+    ('stress', 'Stress'),
+    ('grief', 'Grief'),
+    ('healing', 'Healing'),
+    ('workplace', 'Workplace'),
+    ('sleep', 'Sleep'),
+    ('gratitude', 'Gratitude'),
+    ('body scan', 'Body Scan')
+)
+
+    MEDITATION_TYPE_CHOICES = (
+    ('guided', 'Guided'),
+    ('unguided', 'Unguided'),
+)
+
     # RELATIONSHIP
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="user_meditation")
 
     # DATABASE FIELDS
     name = models.CharField(max_length=100, verbose_name="Meditation Name")
-    purpose = models.CharField(max_length=200, verbose_name="Purpose of Meditation")
-    benefit = models.CharField(max_length=200, verbose_name="Benefit")
+    benefit = models.CharField(max_length=200, verbose_name="Benefit", choices=BENEFIT_CHOICES)
     length = models.DurationField(verbose_name="Meditation Length")
-    type_of_meditation = models.CharField(max_length=200, verbose_name="Type of Meditation")
+    type_of_meditation = models.CharField(max_length=200, verbose_name="Type of Meditation", choices=MEDITATION_TYPE_CHOICES)
     meditation_link = models.URLField(max_length=500, verbose_name="Meditation URL")
 
     # META
