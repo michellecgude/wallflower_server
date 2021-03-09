@@ -12,7 +12,10 @@ urlpatterns = [
     
     path('account/', include('users.urls')),
     path('auth/', include('djoser.urls')),
-    path('auth/', include('djoser.urls.jwt')),
+
+    path('auth/token', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('auth/token/refresh', TokenRefreshView.as_view(), name='token_refresh'),
+    
     path('data/', include('wallflower.urls')), 
 
 
