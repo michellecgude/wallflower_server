@@ -1,6 +1,7 @@
+from datetime import timedelta
 from pathlib import Path
-import os
 import dj_database_url
+import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -129,20 +130,25 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-STATIC_ROOT=os.path.join(BASE_DIR, "static/")
+STATIC_ROOT=os.path.join(BASE_DIR, "django_wallflower/static/")
 
+# AUTH USER MODEL CONFIG
+AUTH_USER_MODEL='users.User'
 
 # DJANGO REST FRAMEWORK
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-    ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
+        # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
     ],
     'DEFAULT_PARSER_CLASSES': [
-        'rest_framework.parsers.JSONParser',
+        'rest_framework.parsers.JSONParser', # Parse json packet
+        'rest_framework.parsers.FormParser', # parse urlencoded packets
+        'rest_framework.parsers.MultiPartParser' # parse from-data packet
     ]
 }
 
@@ -156,5 +162,17 @@ DJOSER = {
     }
 }
 
-# AUTH USER MODEL CONFIG
-AUTH_USER_MODEL='users.User'
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=14),
+    'ROTATE_REFRESH_TOKENS': True,
+    'BLACKLIST_AFTER_ROTATION': False,
+    'ALGORITHM': 'HS256',
+    'SIGNING_KEY': os.environ['SECRET_KEY'],
+    'VERIFYING_KEY': None,
+    'AUTH_HEADER_TYPES': ('JWT',),
+    'USER_ID_FIELD': 'id',
+    'USER_ID_CLAIM': 'user_id',
+    'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
+    'TOKEN_TYPE_CLAIM': 'token_type',
+}
