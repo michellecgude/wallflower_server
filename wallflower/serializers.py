@@ -6,7 +6,7 @@ from .models import Mood, Habit, Meditation, UpliftingContent
 class MoodSerializer(serializers.ModelSerializer):
     class Meta:
         model = Mood
-        fields = ("id", "user", "name", "mood_type", "created_at", "note_entry") 
+        fields = ("id", "user", "mood_type", "created_at", "note_entry") 
 
 class HabitSerializer(serializers.ModelSerializer):
     class Meta:
@@ -16,7 +16,7 @@ class HabitSerializer(serializers.ModelSerializer):
 class MeditationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Meditation
-        fields = ("id", "user", "name", "benefit", "length", "type_of_meditation")
+        fields = ("id", "user", "name", "benefit", "length", "type_of_meditation", "meditation_link")
 
 class UpliftingContentSerializer(serializers.ModelSerializer):
     class Meta:

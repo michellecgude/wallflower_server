@@ -6,8 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ['SECRET_KEY']
 
-# DEBUG = True if os.environ['MODE'] == 'dev' else False
-DEBUG = True
+DEBUG = True if os.environ['MODE'] == 'dev' else False
 
 INSTALLED_APPS = [
     'django.contrib.admin',
