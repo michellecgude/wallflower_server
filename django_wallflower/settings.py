@@ -8,15 +8,16 @@ SECRET_KEY = os.environ['SECRET_KEY']
 
 DEBUG = True if os.environ['MODE'] == 'dev' else False
 
-ALLOWED_HOSTS = ['*']
-# ALLOWED_HOSTS = ["localhost", "192.168.0.121", "127.0.0.1"]
+CORS_ORIGIN_ALLOW_ALL = False
 
-CORS_ALLOWED_ORIGINS = [
-    'https://wall-flower.herokuapp.com',
-    'https://localhost:3000',
-    "localhost",
-    "localhost:3000"]
-# CORS_ALLOWED_ALL_ORIGINS = 'True'
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:3000/',
+    'localhost:3000/',
+    # eventually add heroku link...
+)
+
+ALLOWED_HOSTS = ['http://localhost:3000/', 'localhost:3000/', '127.0.0.1'] 
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -36,10 +37,10 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
