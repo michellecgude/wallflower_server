@@ -15,7 +15,7 @@ CORS_ORIGIN_WHITELIST = (
     # eventually add heroku link...
 )
 
-ALLOWED_HOSTS = ['.herokuapp.com', 'http://localhost:3000/', 'localhost:3000/', '127.0.0.1'] 
+ALLOWED_HOSTS = ['.herokuapp.com', 'http://localhost:3000', 'localhost:3000', '127.0.0.1'] 
 
 
 INSTALLED_APPS = [
