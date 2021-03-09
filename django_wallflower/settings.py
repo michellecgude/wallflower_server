@@ -8,16 +8,6 @@ SECRET_KEY = os.environ['SECRET_KEY']
 
 DEBUG = True if os.environ['MODE'] == 'dev' else False
 
-CORS_ORIGIN_ALLOW_ALL = False
-
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:3000',
-    # eventually add heroku link...
-)
-
-ALLOWED_HOSTS = ['.herokuapp.com', 'http://localhost:3000', 'localhost:3000', '127.0.0.1'] 
-
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     # 'django.contrib.sites',
@@ -46,6 +36,38 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+ALLOWED_HOSTS = ['.herokuapp.com', 'https://wall-flower-api.herokuapp.com', 'http://localhost:3000', 'localhost:3000', '127.0.0.1'] 
+
+CORS_ORIGIN_ALLOW_ALL = False
+
+
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:3000',
+    # eventually add heroku link...
+)
+
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
+
 
 ROOT_URLCONF = 'django_wallflower.urls'
 
