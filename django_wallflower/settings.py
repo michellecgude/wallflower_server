@@ -37,7 +37,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ALLOWED_HOSTS = ['https://wall-flower-api.herokuapp.com', 'http://localhost:3000', 'localhost:3000', '127.0.0.1'] 
+ALLOWED_HOSTS = ['.herokuapp.com', 'https://wall-flower-api.herokuapp.com', 'http://localhost:3000', 'localhost:3000', '127.0.0.1'] 
 
 CORS_ORIGIN_ALLOW_ALL = False
 
