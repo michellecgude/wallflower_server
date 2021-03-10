@@ -21,7 +21,7 @@ class User(AbstractUser):
     # NON AUTH FIELDS
     role = models.CharField(max_length=255, verbose_name="User Demographic", choices=DEMOGRAPHIC_CHOICES)
     
-    REQUIRED_FIELDS = ['first_name','username', 'role']
+    REQUIRED_FIELDS = ['first_name','last_name', 'username', 'role']
     USERNAME_FIELD = 'email'
     
     # META
