@@ -16,7 +16,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     
-    path('account/', include('users.urls')),
+    # path('account/', include('users.urls')),
     path('auth/', include('djoser.urls')),
 
     path('jwtoken/obtain/', jwt_views.TokenObtainPairView.as_view(), name='token_create'),  
