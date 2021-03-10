@@ -34,11 +34,10 @@ class UserProfile(models.Model):  # non-auth related/cosmetic fields
 
 
     # RELATIONSHIP
-    # user = models.OneToOneField(get_user_model(), on_delete=models.CASCADE, null=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, unique=True, on_delete=models.CASCADE)
     
     # DATABASE FIELDS
-    date_created = models.DateField(auto_now=False, auto_now_add=False, verbose_name="Profile Created On", null=True)
+    date_created = models.DateField(auto_now=True, auto_now_add=True, verbose_name="Profile Created On")
     role = models.CharField(max_length=255, verbose_name="User Demographic", choices=DEMOGRAPHIC_CHOICES, null=True)
 
     # DEFINING FUNCTION FOR USER = PROFILE FIELDS, AUTO CREATION
@@ -47,13 +46,6 @@ class UserProfile(models.Model):  # non-auth related/cosmetic fields
             UserProfile.objects.create(user=instance)
             
     post_save.connect(create_user_profile, sender=settings.AUTH_USER_MODEL)
-
-# simplebetterthancomplex option ???
-    # @receiver(post_save, sender=settings.AUTH_USER_MODEL)
-    # def create_or_update_user_profile(sender, instance, created, **kwargs):
-    #     if created:
-    #         UserProfile.objects.create(user=instance)
-    #     instance.profile.save()
 
     # META
     class Meta:

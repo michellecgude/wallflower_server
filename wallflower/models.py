@@ -24,8 +24,8 @@ class Mood(models.Model):
 
     # DATABASE FIELDS
     mood_type = models.CharField('type', max_length=30, choices=MOOD_TYPE_CHOICES)
-    created_at = models.DateTimeField(auto_now=False, auto_now_add=False, verbose_name="Mood Log Created On")
-    note_entry = models.CharField(max_length=100, verbose_name="Note On Mood Log")
+    created_at = models.DateTimeField(auto_now=True, auto_now_add=True, verbose_name="Mood Log Created On")
+    note_entry = models.CharField(max_length=100, verbose_name="Note On Mood Log", blank=True)
 
     # META
     class Meta:
@@ -43,9 +43,9 @@ class Habit(models.Model):
 
     # DATABASE FIELDS
     name = models.CharField(max_length=100, verbose_name="Habit Name")
-    description = models.TextField(max_length=300, verbose_name="Habit Description")
-    created_at = models.DateTimeField(auto_now=False, auto_now_add=False, verbose_name="Habit Created On")
-    note_entry = models.CharField(max_length=100, verbose_name="Note on Habit Created")
+    description = models.TextField(max_length=300, verbose_name="Habit Description", blank=True)
+    created_at = models.DateTimeField(auto_now=True, auto_now_add=True, verbose_name="Habit Created On")
+    note_entry = models.CharField(max_length=100, verbose_name="Note on Habit Created", blank=True)
 
     # META
     class Meta:
