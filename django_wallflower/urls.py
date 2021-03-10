@@ -2,6 +2,8 @@
 from django.contrib import admin
 from django.urls import path, include
 
+from .views import LogoutAndBlacklistRefreshTokenForUserView
+
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
@@ -15,6 +17,7 @@ urlpatterns = [
 
     path('jwtoken/obtain/', TokenObtainPairView.as_view(), name='token_create'),  
     path('jwtoken/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+     path('blacklistoken/', LogoutAndBlacklistRefreshTokenForUserView.as_view(), name='token_blacklist'),
     
     path('data/', include('wallflower.urls')), 
 
