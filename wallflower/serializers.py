@@ -1,11 +1,9 @@
 
 from rest_framework import serializers
-from rest_framework.permissions import IsAuthenticated
 
 from .models import Mood, Habit, Meditation, UpliftingContent
 
 class MoodSerializer(serializers.ModelSerializer):
-    permission_classes = (IsAuthenticated,)
     class Meta:
         model = Mood
         fields = ("id", "user", "mood_type", "created_at", "note_entry") 

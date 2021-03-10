@@ -1,4 +1,5 @@
 # project root urlpatterns
+from django import urls
 from django.contrib import admin
 from django.urls import path, include
 
@@ -13,6 +14,7 @@ from .views import LogoutAndBlacklistRefreshTokenForUserView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api-auth/'), include('rest_framework.urls'),
     
     path('account/', include('users.urls')),
     path('auth/', include('djoser.urls')),
