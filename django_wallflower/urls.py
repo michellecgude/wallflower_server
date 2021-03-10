@@ -14,7 +14,7 @@ from .views import LogoutAndBlacklistRefreshTokenForUserView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api-auth/'), include('rest_framework.urls'),
+    path('api-auth/', include('rest_framework.urls')),
     
     path('account/', include('users.urls')),
     path('auth/', include('djoser.urls')),
