@@ -37,7 +37,7 @@ class UserProfile(models.Model):  # non-auth related/cosmetic fields
     user = models.ForeignKey(settings.AUTH_USER_MODEL, unique=True, on_delete=models.CASCADE)
     
     # DATABASE FIELDS
-    date_created = models.DateField(auto_now=True, auto_now_add=True, verbose_name="Profile Created On")
+    date_created = models.DateField(auto_now_add=True, verbose_name="Profile Created On")
     role = models.CharField(max_length=255, verbose_name="User Demographic", choices=DEMOGRAPHIC_CHOICES, null=True)
 
     # DEFINING FUNCTION FOR USER = PROFILE FIELDS, AUTO CREATION
