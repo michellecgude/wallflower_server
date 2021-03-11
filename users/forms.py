@@ -8,8 +8,6 @@ class AbstractUserCreationForm(UserCreationForm):
 
     class Meta:
         model = User
-        # fields = ('username', 'email')
-
         fields = ('username', 'email', 'password', "role")
 
 
