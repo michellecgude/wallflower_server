@@ -6,6 +6,7 @@ from . import models
 
 from .models import User
 
+# USER SERIALIZER
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.User

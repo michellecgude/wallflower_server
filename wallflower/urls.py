@@ -4,7 +4,6 @@ from django.conf.urls import url, include
 from . import views
 
 urlpatterns = [
-    # view paths:
     # MOODS
     path('moods/', views.MoodList.as_view(), name='mood_list'),    
     path('moods/<int:pk>', views.MoodDetail.as_view(), name='mood_details'),    

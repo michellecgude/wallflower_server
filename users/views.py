@@ -6,6 +6,7 @@ from . import serializers
 from .models import User
 from .serializers import UserSerializer
 
+# USER VIEWS
 class UserListView(generics.ListAPIView):
     queryset = models.User.objects.all()
     serializer_class = serializers.UserSerializer

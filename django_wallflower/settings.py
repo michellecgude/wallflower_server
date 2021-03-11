@@ -12,7 +12,6 @@ DEBUG = True
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    # 'django.contrib.sites',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -25,8 +24,8 @@ INSTALLED_APPS = [
     'djoser',
 
     'django_wallflower',
-    'wallflower', # app that holds wallflower content/data
-    'users', # app that holds user data
+    'wallflower',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -97,13 +96,6 @@ WSGI_APPLICATION = 'django_wallflower.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(conn_max_age=600)
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql',
-    #     'NAME': 'wallflower',
-    #     'USER': 'wallfloweruser',
-    #     'PASSWORD': 'wallflower',
-    #     'HOST': 'localhost'
-    # }
 }
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -143,16 +135,15 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
         'rest_framework.permissions.AllowAny',
-        # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
         'rest_framework.authentication.SessionAuthentication',
     ],
     'DEFAULT_PARSER_CLASSES': [
-        'rest_framework.parsers.JSONParser', # Parse json packet
-        'rest_framework.parsers.FormParser', # parse urlencoded packets
-        'rest_framework.parsers.MultiPartParser' # parse from-data packet
+        'rest_framework.parsers.JSONParser',
+        'rest_framework.parsers.FormParser',
+        'rest_framework.parsers.MultiPartParser'
     ]
 }
 
