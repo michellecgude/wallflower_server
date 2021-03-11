@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt.token_blacklist',
     'djoser',
 
+    'django_wallflower',
     'wallflower', # app that holds wallflower content/data
     'users', # app that holds user data
 ]

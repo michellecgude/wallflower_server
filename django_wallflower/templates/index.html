@@ -1,0 +1,20 @@
+{% load static %}
+<html>
+  <head>
+    <title>Wallflower API</title>
+    <link rel="stylesheet" href="{% static 'css/wallflower.css' %}" />
+  </head>
+  <body>
+  {% block content %}
+    <h1>Welcome to the Wallflower API</h1>
+    <p>
+      You've reached the <strong>private api</strong> built for Wallflower. A personalized mental
+      health application to help users cope, heal, and remedy the trauma from
+      the COVID pandemic based on what they went through and what they've experienced.</p>
+    
+    <h2>Important Note:</h2>
+    <p><em>This API isn't meant for viewing due to personal and private information. If you're interested in experiencing the application for itself visit the application at <a href="https://wallflower-app.herokuapp.com/">Wallflower.</a><em></p>
+  {% endblock %}
+    </p>
+  </body>
+</html>

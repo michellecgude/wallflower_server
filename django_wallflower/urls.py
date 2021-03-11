@@ -2,6 +2,7 @@
 from django import urls
 from django.contrib import admin
 from django.urls import path, include
+from . import views
 
 
 from rest_framework_simplejwt.views import (
@@ -13,10 +14,10 @@ from rest_framework_simplejwt import views as jwt_views
 from .views import LogoutAndBlacklistRefreshTokenForUserView
 
 urlpatterns = [
+    path('', views.index, name='index'),
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     
-    # path('account/', include('users.urls')),
     path('auth/', include('djoser.urls')),
 
     path('jwtoken/obtain/', jwt_views.TokenObtainPairView.as_view(), name='token_create'),  
