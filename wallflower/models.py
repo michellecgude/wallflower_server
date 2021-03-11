@@ -38,7 +38,7 @@ class Mood(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-        return "User's Mood " + str(self.user.first_name) + str(self.user.role) + " - " + self.mood_type
+        return "User :" + " | " + str(self.user.first_name) + " logged their mood as " + self.mood_type
 
 
 
@@ -63,7 +63,7 @@ class Habit(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-        return "User's Habit " + str(self.user.first_name) + str(self.user.role) + " - " + self.name
+         return "User :" + " | " + str(self.user.first_name) + " logged their habit, titled " + self.name
     
 
 
@@ -112,7 +112,7 @@ class FrontlineMeditation(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-        return "Frontline User's Meditation " + str(self.user.first_name) + str(self.user.role) + " - " + self.name
+         return "User :" + " | " + str(self.user.first_name) + " logged their " + str(self.user.role)  + " meditation " + self.name
 
 class UnemployedMeditation(models.Model):
 
@@ -156,7 +156,7 @@ class UnemployedMeditation(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-        return "Unemployed User's Meditation " + str(self.user.first_name) + str(self.user.role) + " - " + self.name
+         return "User :" + " | " + str(self.user.first_name) + " logged their " + str(self.user.role)  + " meditation " + self.name
 
 class SurvivorMeditation(models.Model):
 
@@ -199,7 +199,7 @@ class SurvivorMeditation(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-        return "Survivor User's Meditation " + str(self.user.first_name) + str(self.user.role) + " - " + self.name
+         return "User :" + " | " + str(self.user.first_name) + " logged their " + str(self.user.role)  + " meditation " + self.name
 
 class LossMeditation(models.Model):
 
@@ -242,7 +242,7 @@ class LossMeditation(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-        return "Loss User's Meditation " + str(self.user.first_name) + str(self.user.role) + " - " + self.name
+         return "User :" + " | " + str(self.user.first_name) + " logged their " + str(self.user.role)  + " meditation " + self.name
 
 class MentalHealthMeditation(models.Model):
 
@@ -285,7 +285,7 @@ class MentalHealthMeditation(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-        return "Mental Health User's Meditation " + str(self.user.first_name) + str(self.user.role) + " - " + self.name
+         return "User :" + " | " + str(self.user.first_name) + " logged their " + str(self.user.role)  + " meditation " + self.name
 
 class IsolatedMeditation(models.Model):
 
@@ -328,7 +328,7 @@ class IsolatedMeditation(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-        return "Isolated User's Meditation " + str(self.user.first_name) + str(self.user.role) + " - " + self.name
+         return "User :" + " | " + str(self.user.first_name) + " logged their " + str(self.user.role)  + " meditation " + self.name
 
 
 
@@ -354,7 +354,7 @@ class FrontlineUpliftingContent(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-        return "Frontline User's Uplifting Content " + str(self.user.first_name) + str(self.user.role) + " - " + self.title
+        return "User : " + " | " + str(self.user.first_name) + " with a demographic of " + str(self.user.role) + " logged their article."
 
 
 class UnemployedUpliftingContent(models.Model):
@@ -376,7 +376,7 @@ class UnemployedUpliftingContent(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-        return "Unemployed User's Uplifting Content " + str(self.user.first_name) + str(self.user.role) + " - " + self.title
+        return "User : " + " | " + str(self.user.first_name) + " with a demographic of " + str(self.user.role) + " logged their article."
 
 
 class SurvivorUpliftingContent(models.Model):
@@ -398,7 +398,7 @@ class SurvivorUpliftingContent(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-        return "Survivor's Uplifting Content " + str(self.user.first_name) + str(self.user.role) + " - " + self.title
+        return "User : " + " | " + str(self.user.first_name) + " with a demographic of " + str(self.user.role) + " logged their article."
 
 
 class LossUpliftingContent(models.Model):
@@ -420,7 +420,7 @@ class LossUpliftingContent(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-        return "Loss User's Uplifting Content " + str(self.user.first_name) + str(self.user.role) + " - " + self.title
+        return "User : " + " | " + str(self.user.first_name) + " with a demographic of " + str(self.user.role) + " logged their article."
 
 
 class MentalHealthUpliftingContent(models.Model):
@@ -442,7 +442,7 @@ class MentalHealthUpliftingContent(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-        return "Mental Health's Uplifting Content " + str(self.user.first_name) + str(self.user.role) + " - " + self.title
+        return "User : " + " | " + str(self.user.first_name) + " with a demographic of " + str(self.user.role) + " logged their article."
 
 
 
@@ -465,4 +465,4 @@ class IsolatedUpliftingContent(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-        return "Isolated User's Uplifting Content " + str(self.user.first_name) + str(self.user.role) + " - " + self.title
+        return "User : " + " | " + str(self.user.first_name) + " with a demographic of " + str(self.user.role) + " logged their article."
