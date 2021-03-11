@@ -38,7 +38,7 @@ class Mood(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-        return "User's Mood " + str(self.user.first_name) + str(self.user.role) + " - " + self.name
+        return "User's Mood " + str(self.user.first_name) + str(self.user.role) + " - " + self.mood_type
 
 
 
