@@ -12,7 +12,8 @@ djoser = "*"
 django-cors-headers = "*"
 whitenoise = "*"
 djangorestframework = "*"
-pyjwt = "==1.7.1"
+djangorestframework-simplejwt = "*"
+pyjwt = "*"
 
 [dev-packages]
 
