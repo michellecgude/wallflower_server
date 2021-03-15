@@ -40,7 +40,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ALLOWED_HOSTS = ['.herokuapp.com', 'https://wallflower-api.herokuapp.com', 'http://localhost:3000', 'https://wallflower-app.herokuapp.com/'] 
+ALLOWED_HOSTS = ['.herokuapp.com', 'https://wallflower-api.herokuapp.com', 'http://localhost:3000', 'https://wallflower-app.herokuapp.com'] 
 
 CORS_ORIGIN_ALLOW_ALL = False
 
@@ -48,7 +48,7 @@ CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
     'https://wallflower-api.herokuapp.com',
-    'https://wallflower-app.herokuapp.com/',
+    'https://wallflower-app.herokuapp.com',
     # eventually add heroku link...
 )
 

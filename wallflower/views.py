@@ -7,7 +7,6 @@ from rest_framework.views import APIView
 
 from .models import (
     Mood, 
-    Habit, 
     FrontlineMeditation, 
     UnemployedMeditation, 
     SurvivorMeditation, 
@@ -23,7 +22,6 @@ from .models import (
 
 from .serializers import (
     MoodSerializer, 
-    HabitSerializer, 
     FrontlineMeditationSerializer, 
     UnemployedMeditationSerializer, 
     SurvivorMeditationSerializer, 
@@ -45,15 +43,6 @@ class MoodList(generics.ListCreateAPIView):
 class MoodDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Mood.objects.all()
     serializer_class = MoodSerializer
-
-# HABIT VIEWS
-class HabitList(generics.ListCreateAPIView):
-    queryset = Habit.objects.all()
-    serializer_class = HabitSerializer
-
-class HabitDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Habit.objects.all()
-    serializer_class = HabitSerializer
 
 # FRONTLINE VIEWS
 class FrontlineMeditationList(generics.ListCreateAPIView):

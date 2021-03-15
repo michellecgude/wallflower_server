@@ -44,31 +44,6 @@ class Mood(models.Model):
 
 
 
-#  --- HABITS ---
-class Habit(models.Model):
-
-    # RELATIONSHIP
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="user_habit")
-
-    # DATABASE FIELDS
-    name = models.CharField(max_length=100, verbose_name="Habit Name")
-    description = models.TextField(max_length=300, verbose_name="Habit Description", blank=True)
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Habit Created On")
-    note_entry = models.CharField(max_length=100, verbose_name="Note on Habit Created", blank=True)
-
-    # META
-    class Meta:
-        verbose_name = "User's Habit"
-        verbose_name_plural = "User Habits"
-
-    # TO STRING METHOD
-    def __str__(self):
-         return "User :" + " | " + str(self.user.first_name) + " logged their habit, titled " + self.name
-    
-
-
-
-
 #  --- USER PERSONALIZED MEDITATIONS ---
 class FrontlineMeditation(models.Model):
 

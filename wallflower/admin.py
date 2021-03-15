@@ -2,7 +2,6 @@ from django.contrib import admin
 
 from .models import (
     Mood, 
-    Habit, 
     FrontlineMeditation, 
     UnemployedMeditation, 
     SurvivorMeditation, 
@@ -18,7 +17,6 @@ from .models import (
 
 admin.site.register([
     Mood, 
-    Habit, 
     FrontlineMeditation, 
     UnemployedMeditation, 
     SurvivorMeditation, 

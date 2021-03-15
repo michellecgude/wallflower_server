@@ -7,10 +7,6 @@ urlpatterns = [
     # MOODS
     path('moods/', views.MoodList.as_view(), name='mood_list'),    
     path('moods/<int:pk>', views.MoodDetail.as_view(), name='mood_details'),    
-
-    # HABITS
-    path('habits/', views.HabitList.as_view(), name='habit_list'),    
-    path('habits/<int:pk>', views.HabitDetail.as_view(), name='habit_details'),    
     
     # FRONTLINE URLS
     path('frontline-meditations/', views.FrontlineMeditationList.as_view(), name='frontline_meditation_list'),    

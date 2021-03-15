@@ -3,7 +3,6 @@ from rest_framework import serializers
 
 from .models import (
     Mood, 
-    Habit, 
     FrontlineMeditation, 
     UnemployedMeditation, 
     SurvivorMeditation, 
@@ -22,12 +21,6 @@ class MoodSerializer(serializers.ModelSerializer):
     class Meta:
         model = Mood
         fields = ("id", "user", "mood_type", "created_at", "note_entry") 
-
-# HABIT SERIALIZER
-class HabitSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Habit
-        fields = ("id", "user", "name", "description", "created_at", "note_entry")
 
 # FRONTLINE SERIALIZERS
 class FrontlineMeditationSerializer(serializers.ModelSerializer):
