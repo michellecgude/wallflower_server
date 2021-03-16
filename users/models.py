@@ -32,4 +32,4 @@ class User(AbstractUser):
 
     # TO STRING METHOD
     def __str__(self):
-        return "User " + str(self.first_name) + " with an user id of " + str(self.id) + " was created." + " their reason for joining is : " + self.role
+        return "User :" + str(self.first_name) + " + User ID :" + str(self.id)
