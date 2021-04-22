@@ -31,6 +31,7 @@ class FrontlineMeditation(models.Model):
     description = models.TextField(max_length=200, verbose_name="Meditation Description")
     benefit = models.CharField(max_length=200, verbose_name="Benefit", choices=BENEFIT_CHOICES)
     length = models.DurationField(verbose_name="Meditation Length")
+    audio = models.FileField(verbose_name="Meditation Audio File")
     meditation_link = models.URLField(max_length=500, verbose_name="Meditation URL")
 
     # META
@@ -70,6 +71,7 @@ class UnemployedMeditation(models.Model):
     description = models.TextField(max_length=200, verbose_name="Meditation Description")
     benefit = models.CharField(max_length=200, verbose_name="Benefit", choices=BENEFIT_CHOICES)
     length = models.DurationField(verbose_name="Meditation Length")
+    audio = models.FileField(verbose_name="Meditation Audio File")
     meditation_link = models.URLField(max_length=500, verbose_name="Meditation URL")
 
     # META
@@ -108,6 +110,7 @@ class LossMeditation(models.Model):
     description = models.TextField(max_length=200, verbose_name="Meditation Description")
     benefit = models.CharField(max_length=200, verbose_name="Benefit", choices=BENEFIT_CHOICES)
     length = models.DurationField(verbose_name="Meditation Length")
+    audio = models.FileField(verbose_name="Meditation Audio File")
     meditation_link = models.URLField(max_length=500, verbose_name="Meditation URL")
 
     # META
@@ -146,6 +149,7 @@ class MentalHealthMeditation(models.Model):
     description = models.TextField(max_length=200, verbose_name="Meditation Description")
     benefit = models.CharField(max_length=200, verbose_name="Benefit", choices=BENEFIT_CHOICES)
     length = models.DurationField(verbose_name="Meditation Length")
+    audio = models.FileField(verbose_name="Meditation Audio File")
     meditation_link = models.URLField(max_length=500, verbose_name="Meditation URL")
 
     # META
@@ -184,6 +188,7 @@ class IsolatedMeditation(models.Model):
     description = models.TextField(max_length=200, verbose_name="Meditation Description")
     benefit = models.CharField(max_length=200, verbose_name="Benefit", choices=BENEFIT_CHOICES)
     length = models.DurationField(verbose_name="Meditation Length")
+    audio = models.FileField(verbose_name="Meditation Audio File")
     meditation_link = models.URLField(max_length=500, verbose_name="Meditation URL")
 
     # META
