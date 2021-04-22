@@ -11,7 +11,6 @@ class User(AbstractUser):
     DEMOGRAPHIC_CHOICES = (
         ('frontline', 'Frontline Healthcare Worker'),
         ('unemployed', 'Unemployed'),
-        ('survivor', 'COVID Survivor'),
         ('loss', 'Lost a Loved One'),
         ('mentalhealth', 'Pre Existing Mental Health Issues'),
         ('isolated', 'Socially Isolated')
@@ -32,4 +31,4 @@ class User(AbstractUser):
 
     # TO STRING METHOD
     def __str__(self):
-        return "User :" + str(self.first_name) + " + User ID :" + str(self.id)
+        return str(self.first_name) + str(self.id)

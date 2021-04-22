@@ -6,43 +6,28 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .models import (
-    Mood, 
     FrontlineMeditation, 
     UnemployedMeditation, 
-    SurvivorMeditation, 
     LossMeditation, 
     MentalHealthMeditation, 
     IsolatedMeditation, 
     FrontlineUpliftingContent, 
     UnemployedUpliftingContent, 
-    SurvivorUpliftingContent, 
     LossUpliftingContent, 
     MentalHealthUpliftingContent, 
     IsolatedUpliftingContent)
 
 from .serializers import (
-    MoodSerializer, 
     FrontlineMeditationSerializer, 
     UnemployedMeditationSerializer, 
-    SurvivorMeditationSerializer, 
     LossMeditationSerializer, 
     MentalHealthMeditationSerializer, 
     IsolatedMeditationSerializer, 
     FrontlineUpliftingContentSerializer, 
     UnemployedUpliftingContentSerializer, 
-    SurvivorUpliftingContentSerializer, 
     LossUpliftingContentSerializer, 
     MentalHealthUpliftingContentSerializer, 
     IsolatedUpliftingContentSerializer)
-
-# MOOD VIEWS
-class MoodList(generics.ListCreateAPIView):
-    queryset = Mood.objects.all()
-    serializer_class = MoodSerializer
-
-class MoodDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Mood.objects.all()
-    serializer_class = MoodSerializer
 
 # FRONTLINE VIEWS
 class FrontlineMeditationList(generics.ListCreateAPIView):
@@ -77,23 +62,6 @@ class UnemployedUpliftingContentList(generics.ListCreateAPIView):
 class UnemployedUpliftingContentDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = UnemployedUpliftingContent.objects.all()
     serializer_class = UnemployedUpliftingContentSerializer
-
-# SURVIVOR VIEWS
-class SurvivorMeditationList(generics.ListCreateAPIView):
-    queryset = SurvivorMeditation.objects.all()
-    serializer_class = SurvivorMeditationSerializer
-
-class SurvivorMeditationDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = SurvivorMeditation.objects.all()
-    serializer_class = SurvivorMeditationSerializer
-
-class SurvivorUpliftingContentList(generics.ListCreateAPIView):
-    queryset = SurvivorUpliftingContent.objects.all()
-    serializer_class = SurvivorUpliftingContentSerializer
-    
-class SurvivorUpliftingContentDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = SurvivorUpliftingContent.objects.all()
-    serializer_class = SurvivorUpliftingContentSerializer
 
 # LOSS VIEWS
 class LossMeditationList(generics.ListCreateAPIView):

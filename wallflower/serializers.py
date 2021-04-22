@@ -2,25 +2,16 @@
 from rest_framework import serializers
 
 from .models import (
-    Mood, 
     FrontlineMeditation, 
     UnemployedMeditation, 
-    SurvivorMeditation, 
     LossMeditation, 
     MentalHealthMeditation, 
     IsolatedMeditation, 
     FrontlineUpliftingContent, 
     UnemployedUpliftingContent, 
-    SurvivorUpliftingContent, 
     LossUpliftingContent, 
     MentalHealthUpliftingContent, 
     IsolatedUpliftingContent)
-
-# MOOD SERIALIZER
-class MoodSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Mood
-        fields = ("id", "user", "mood_type", "created_at", "note_entry") 
 
 # FRONTLINE SERIALIZERS
 class FrontlineMeditationSerializer(serializers.ModelSerializer):
@@ -43,17 +34,6 @@ class UnemployedMeditationSerializer(serializers.ModelSerializer):
 class UnemployedUpliftingContentSerializer(serializers.ModelSerializer):
     class Meta:
         model = UnemployedUpliftingContent
-        fields = ("id", "user", "description", "img_url", "src", "article_link")
-
-# SURVIVOR SERIALIZERS
-class SurvivorMeditationSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = SurvivorMeditation
-        fields = ("id", "user", "name", "benefit", "length", "type_of_meditation", "meditation_link")
-
-class SurvivorUpliftingContentSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = SurvivorUpliftingContent
         fields = ("id", "user", "description", "img_url", "src", "article_link")
 
 # LOSS SERIALIZERS

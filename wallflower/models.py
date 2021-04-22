@@ -2,48 +2,6 @@ from django.db import models
 from users.models import User
 from django.conf import settings
 
-
-
-
-
-#  --- MOODS ---
-class Mood(models.Model):
-
-    # CHOICES
-    MOOD_TYPE_CHOICES = (
-    ('happy', 'Happy'),
-    ('comfortable', 'Comfortable'),
-    ('calm', 'Calm'),
-    ('content', 'Content'),
-    ('neutral', 'Neutral'),
-    ('anxious', 'Anxious'),
-    ('sad', 'Sad'),
-    ('stressed', 'Stressed'),
-    ('overwhelmed', 'Overwhelmed'),
-    ('tired', 'Tired')
-)
-
-    # RELATIONSHIP
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="user_mood")
-
-    # DATABASE FIELDS
-    mood_type = models.CharField('type', max_length=30, choices=MOOD_TYPE_CHOICES)
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Mood Log Created On")
-    note_entry = models.CharField(max_length=100, verbose_name="Note On Mood Log", blank=True)
-
-    # META
-    class Meta:
-        verbose_name = "User Mood"
-        verbose_name_plural = "User Moods"
-
-    # TO STRING METHOD
-    def __str__(self):
-        return "User :" + " | " + str(self.user.first_name) + " logged their mood as " + self.mood_type
-
-
-
-
-
 #  --- USER PERSONALIZED MEDITATIONS ---
 class FrontlineMeditation(models.Model):
 
@@ -65,19 +23,14 @@ class FrontlineMeditation(models.Model):
     ('body scan', 'Body Scan')
 )
 
-    MEDITATION_TYPE_CHOICES = (
-    ('guided', 'Guided'),
-    ('unguided', 'Unguided'),
-)
-
     # RELATIONSHIP
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="frontline_meditation", blank=True)
 
     # DATABASE FIELDS
-    name = models.CharField(max_length=100, verbose_name="Meditation Name")
+    name = models.CharField(max_length=200, verbose_name="Meditation Name")
+    description = models.TextField(max_length=200, verbose_name="Meditation Description")
     benefit = models.CharField(max_length=200, verbose_name="Benefit", choices=BENEFIT_CHOICES)
     length = models.DurationField(verbose_name="Meditation Length")
-    type_of_meditation = models.CharField(max_length=200, verbose_name="Type of Meditation", choices=MEDITATION_TYPE_CHOICES)
     meditation_link = models.URLField(max_length=500, verbose_name="Meditation URL")
 
     # META
@@ -87,7 +40,7 @@ class FrontlineMeditation(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-         return "User :" + " | " + str(self.user.first_name) + " logged their " + str(self.user.role)  + " meditation " + self.name
+         return str(self.user.first_name) + " meditated to " + self.name
 
 class UnemployedMeditation(models.Model):
 
@@ -109,19 +62,14 @@ class UnemployedMeditation(models.Model):
     ('body scan', 'Body Scan')
 )
 
-    MEDITATION_TYPE_CHOICES = (
-    ('guided', 'Guided'),
-    ('unguided', 'Unguided'),
-)
-
     # RELATIONSHIP
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="unemployed_meditation", blank=True)
 
     # DATABASE FIELDS
-    name = models.CharField(max_length=100, verbose_name="Meditation Name")
+    name = models.CharField(max_length=200, verbose_name="Meditation Name")
+    description = models.TextField(max_length=200, verbose_name="Meditation Description")
     benefit = models.CharField(max_length=200, verbose_name="Benefit", choices=BENEFIT_CHOICES)
     length = models.DurationField(verbose_name="Meditation Length")
-    type_of_meditation = models.CharField(max_length=200, verbose_name="Type of Meditation", choices=MEDITATION_TYPE_CHOICES)
     meditation_link = models.URLField(max_length=500, verbose_name="Meditation URL")
 
     # META
@@ -131,50 +79,7 @@ class UnemployedMeditation(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-         return "User :" + " | " + str(self.user.first_name) + " logged their " + str(self.user.role)  + " meditation " + self.name
-
-class SurvivorMeditation(models.Model):
-
-    # CHOICES
-    BENEFIT_CHOICES = (
-    ('happiness', 'Happiness'),
-    ('acceptance', 'Acceptance'),
-    ('resilience', 'Resilience'),
-    ('relaxation', 'Relaxation'),
-    ('letting go', 'Letting Go'),
-    ('depression', 'Depression'),
-    ('anxiety', 'Anxiety'),
-    ('stress', 'Stress'),
-    ('grief', 'Grief'),
-    ('healing', 'Healing'),
-    ('sleep', 'Sleep'),
-    ('gratitude', 'Gratitude'),
-    ('body scan', 'Body Scan')
-)
-
-    MEDITATION_TYPE_CHOICES = (
-    ('guided', 'Guided'),
-    ('unguided', 'Unguided'),
-)
-
-    # RELATIONSHIP
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="survivor_meditation", blank=True)
-
-    # DATABASE FIELDS
-    name = models.CharField(max_length=100, verbose_name="Meditation Name")
-    benefit = models.CharField(max_length=200, verbose_name="Benefit", choices=BENEFIT_CHOICES)
-    length = models.DurationField(verbose_name="Meditation Length")
-    type_of_meditation = models.CharField(max_length=200, verbose_name="Type of Meditation", choices=MEDITATION_TYPE_CHOICES)
-    meditation_link = models.URLField(max_length=500, verbose_name="Meditation URL")
-
-    # META
-    class Meta:
-        verbose_name = "Survivor User's Meditation"
-        verbose_name_plural = "Survivor User Meditations"
-
-    # TO STRING METHOD
-    def __str__(self):
-         return "User :" + " | " + str(self.user.first_name) + " logged their " + str(self.user.role)  + " meditation " + self.name
+        return str(self.user.first_name) + " meditated to " + self.name
 
 class LossMeditation(models.Model):
 
@@ -195,19 +100,14 @@ class LossMeditation(models.Model):
     ('body scan', 'Body Scan')
 )
 
-    MEDITATION_TYPE_CHOICES = (
-    ('guided', 'Guided'),
-    ('unguided', 'Unguided'),
-)
-
     # RELATIONSHIP
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="loss_meditation", blank=True)
 
     # DATABASE FIELDS
-    name = models.CharField(max_length=100, verbose_name="Meditation Name")
+    name = models.CharField(max_length=200, verbose_name="Meditation Name")
+    description = models.TextField(max_length=200, verbose_name="Meditation Description")
     benefit = models.CharField(max_length=200, verbose_name="Benefit", choices=BENEFIT_CHOICES)
     length = models.DurationField(verbose_name="Meditation Length")
-    type_of_meditation = models.CharField(max_length=200, verbose_name="Type of Meditation", choices=MEDITATION_TYPE_CHOICES)
     meditation_link = models.URLField(max_length=500, verbose_name="Meditation URL")
 
     # META
@@ -217,7 +117,7 @@ class LossMeditation(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-         return "User :" + " | " + str(self.user.first_name) + " logged their " + str(self.user.role)  + " meditation " + self.name
+        return str(self.user.first_name) + " meditated to " + self.name
 
 class MentalHealthMeditation(models.Model):
 
@@ -238,19 +138,14 @@ class MentalHealthMeditation(models.Model):
     ('body scan', 'Body Scan')
 )
 
-    MEDITATION_TYPE_CHOICES = (
-    ('guided', 'Guided'),
-    ('unguided', 'Unguided'),
-)
-
     # RELATIONSHIP
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="mentalhealth_meditation", blank=True)
 
     # DATABASE FIELDS
-    name = models.CharField(max_length=100, verbose_name="Meditation Name")
+    name = models.CharField(max_length=200, verbose_name="Meditation Name")
+    description = models.TextField(max_length=200, verbose_name="Meditation Description")
     benefit = models.CharField(max_length=200, verbose_name="Benefit", choices=BENEFIT_CHOICES)
     length = models.DurationField(verbose_name="Meditation Length")
-    type_of_meditation = models.CharField(max_length=200, verbose_name="Type of Meditation", choices=MEDITATION_TYPE_CHOICES)
     meditation_link = models.URLField(max_length=500, verbose_name="Meditation URL")
 
     # META
@@ -260,7 +155,7 @@ class MentalHealthMeditation(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-         return "User :" + " | " + str(self.user.first_name) + " logged their " + str(self.user.role)  + " meditation " + self.name
+        return str(self.user.first_name) + " meditated to " + self.name
 
 class IsolatedMeditation(models.Model):
 
@@ -281,19 +176,14 @@ class IsolatedMeditation(models.Model):
     ('body scan', 'Body Scan')
 )
 
-    MEDITATION_TYPE_CHOICES = (
-    ('guided', 'Guided'),
-    ('unguided', 'Unguided'),
-)
-
     # RELATIONSHIP
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="isolated_meditation", blank=True)
 
     # DATABASE FIELDS
-    name = models.CharField(max_length=100, verbose_name="Meditation Name")
+    name = models.CharField(max_length=200, verbose_name="Meditation Name")
+    description = models.TextField(max_length=200, verbose_name="Meditation Description")
     benefit = models.CharField(max_length=200, verbose_name="Benefit", choices=BENEFIT_CHOICES)
     length = models.DurationField(verbose_name="Meditation Length")
-    type_of_meditation = models.CharField(max_length=200, verbose_name="Type of Meditation", choices=MEDITATION_TYPE_CHOICES)
     meditation_link = models.URLField(max_length=500, verbose_name="Meditation URL")
 
     # META
@@ -303,7 +193,7 @@ class IsolatedMeditation(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-         return "User :" + " | " + str(self.user.first_name) + " logged their " + str(self.user.role)  + " meditation " + self.name
+        return str(self.user.first_name) + " meditated to " + self.name
 
 
 
@@ -329,7 +219,7 @@ class FrontlineUpliftingContent(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-        return "User : " + " | " + str(self.user.first_name) + " with a demographic of " + str(self.user.role) + " logged their article."
+        return str(self.user.role) + " has article " + str(self.title)
 
 
 class UnemployedUpliftingContent(models.Model):
@@ -351,30 +241,7 @@ class UnemployedUpliftingContent(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-        return "User : " + " | " + str(self.user.first_name) + " with a demographic of " + str(self.user.role) + " logged their article."
-
-
-class SurvivorUpliftingContent(models.Model):
-
-    # RELATIONSHIP
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="survivor_uplifting_content", blank=True)
-
-    # DATABASE FIELDS
-    title = models.CharField(max_length=200, verbose_name="Article Name")
-    description = models.CharField(max_length=200, verbose_name="Article Description")
-    img_url = models.URLField(max_length=500, verbose_name="Image URL")
-    src = models.CharField(max_length=200, verbose_name="Article Source")
-    article_link = models.URLField(max_length=500, verbose_name="Article URL")
-
-    # META
-    class Meta:
-        verbose_name = "Survivor's Uplifting Content"
-        verbose_name_plural = "Survivor Uplifting Content"
-
-    # TO STRING METHOD
-    def __str__(self):
-        return "User : " + " | " + str(self.user.first_name) + " with a demographic of " + str(self.user.role) + " logged their article."
-
+        return str(self.user.role) + " has article " + str(self.title)
 
 class LossUpliftingContent(models.Model):
 
@@ -395,8 +262,7 @@ class LossUpliftingContent(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-        return "User : " + " | " + str(self.user.first_name) + " with a demographic of " + str(self.user.role) + " logged their article."
-
+        return str(self.user.role) + " has article " + str(self.title)
 
 class MentalHealthUpliftingContent(models.Model):
 
@@ -417,9 +283,7 @@ class MentalHealthUpliftingContent(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-        return "User : " + " | " + str(self.user.first_name) + " with a demographic of " + str(self.user.role) + " logged their article."
-
-
+        return str(self.user.role) + " has article " + str(self.title)
 
 class IsolatedUpliftingContent(models.Model):
 
@@ -440,4 +304,4 @@ class IsolatedUpliftingContent(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-        return "User : " + " | " + str(self.user.first_name) + " with a demographic of " + str(self.user.role) + " logged their article."
+        return str(self.user.role) + " has article " + str(self.title)

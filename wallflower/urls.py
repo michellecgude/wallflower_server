@@ -3,11 +3,7 @@ from django.conf.urls import url, include
 
 from . import views
 
-urlpatterns = [
-    # MOODS
-    path('moods/', views.MoodList.as_view(), name='mood_list'),    
-    path('moods/<int:pk>', views.MoodDetail.as_view(), name='mood_details'),    
-    
+urlpatterns = [    
     # FRONTLINE URLS
     path('frontline-meditations/', views.FrontlineMeditationList.as_view(), name='frontline_meditation_list'),    
     path('frontline-meditations/<int:pk>', views.FrontlineMeditationDetail.as_view(), name='frontline_meditation_details'), 
@@ -21,13 +17,6 @@ urlpatterns = [
     
     path('unemployed-upliftingcontents/', views.UnemployedUpliftingContentList.as_view(), name='unemployed_upliftingcontent_list'),    
     path('unemployed-upliftingcontents/<int:pk>', views.UnemployedUpliftingContentDetail.as_view(), name='unemployed_upliftingcontent_details'), 
-
-    # SURVIVOR URLS
-    path('survivor-meditations/', views.SurvivorMeditationList.as_view(), name='survivor_meditation_list'),    
-    path('survivor-meditations/<int:pk>', views.SurvivorMeditationDetail.as_view(), name='survivor_meditation_details'), 
-    
-    path('survivor-upliftingcontents/', views.SurvivorUpliftingContentList.as_view(), name='survivor_upliftingcontent_list'),    
-    path('survivor-upliftingcontents/<int:pk>', views.SurvivorUpliftingContentDetail.as_view(), name='survivor_upliftingcontent_details'), 
 
     # LOSS URLS
     path('loss-meditations/', views.LossMeditationList.as_view(), name='loss_meditation_list'),    
