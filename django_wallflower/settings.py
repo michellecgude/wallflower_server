@@ -44,6 +44,7 @@ ALLOWED_HOSTS = ['.herokuapp.com', 'https://wallflower-api.herokuapp.com', 'http
 
 CORS_ORIGIN_ALLOW_ALL = True
 
+
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
     'https://wallflower-api.herokuapp.com',
