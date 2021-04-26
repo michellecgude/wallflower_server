@@ -10,9 +10,6 @@ from django.conf import settings
 #  --- USER PERSONALIZED MEDITATIONS ---
 class FrontlineMeditation(models.Model):
 
-    # RELATIONSHIP
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="frontline_meditation", blank=True)
-
     # DATABASE FIELDS
     name = models.CharField(max_length=200, verbose_name="Meditation Name")
     description = models.TextField(max_length=200, verbose_name="Meditation Description")
@@ -30,9 +27,6 @@ class FrontlineMeditation(models.Model):
          return str(self.user.first_name) + " meditated to " + self.name
 
 class UnemployedMeditation(models.Model):
-
-    # RELATIONSHIP
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="unemployed_meditation", blank=True)
 
     # DATABASE FIELDS
     name = models.CharField(max_length=200, verbose_name="Meditation Name")
@@ -52,9 +46,6 @@ class UnemployedMeditation(models.Model):
 
 class LossMeditation(models.Model):
 
-    # RELATIONSHIP
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="loss_meditation", blank=True)
-
     # DATABASE FIELDS
     name = models.CharField(max_length=200, verbose_name="Meditation Name")
     description = models.TextField(max_length=200, verbose_name="Meditation Description")
@@ -73,9 +64,6 @@ class LossMeditation(models.Model):
 
 class MentalHealthMeditation(models.Model):
 
-    # RELATIONSHIP
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="mentalhealth_meditation", blank=True)
-
     # DATABASE FIELDS
     name = models.CharField(max_length=200, verbose_name="Meditation Name")
     description = models.TextField(max_length=200, verbose_name="Meditation Description")
@@ -93,9 +81,6 @@ class MentalHealthMeditation(models.Model):
         return str(self.user.first_name) + " meditated to " + self.name
 
 class IsolatedMeditation(models.Model):
-
-    # RELATIONSHIP
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="isolated_meditation", blank=True)
 
     # DATABASE FIELDS
     name = models.CharField(max_length=200, verbose_name="Meditation Name")
@@ -120,9 +105,6 @@ class IsolatedMeditation(models.Model):
 #  --- USER PERSONALIZED UPLIFTING CONTENT ---
 class FrontlineUpliftingContent(models.Model):
 
-    # RELATIONSHIP
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="frontline_uplifting_content", blank=True)
-
     # DATABASE FIELDS
     title = models.CharField(max_length=200, verbose_name="Article Name")
     description = models.CharField(max_length=200, verbose_name="Article Description")
@@ -142,8 +124,6 @@ class FrontlineUpliftingContent(models.Model):
 
 class UnemployedUpliftingContent(models.Model):
 
-    # RELATIONSHIP
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="unemployed_uplifting_content", blank=True)
 
     # DATABASE FIELDS
     title = models.CharField(max_length=200, verbose_name="Article Name")
@@ -163,9 +143,6 @@ class UnemployedUpliftingContent(models.Model):
 
 class LossUpliftingContent(models.Model):
 
-    # RELATIONSHIP
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="loss_uplifting_content", blank=True)
-
     # DATABASE FIELDS
     title = models.CharField(max_length=200, verbose_name="Article Name")
     description = models.CharField(max_length=200, verbose_name="Article Description")
@@ -184,9 +161,6 @@ class LossUpliftingContent(models.Model):
 
 class MentalHealthUpliftingContent(models.Model):
 
-    # RELATIONSHIP
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="mentalhealth_uplifting_content", blank=True)
-
     # DATABASE FIELDS
     title = models.CharField(max_length=200, verbose_name="Article Name")
     description = models.CharField(max_length=200, verbose_name="Article Description")
@@ -204,9 +178,6 @@ class MentalHealthUpliftingContent(models.Model):
         return str(self.user.role) + " has article " + str(self.title)
 
 class IsolatedUpliftingContent(models.Model):
-
-    # RELATIONSHIP
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="isolated_uplifting_content", blank=True)
 
     # DATABASE FIELDS
     title = models.CharField(max_length=200, verbose_name="Article Name")
