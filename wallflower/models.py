@@ -24,7 +24,7 @@ class FrontlineMeditation(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-         return str(self.user.first_name) + " meditated to " + self.name
+        return str(self.name) + " " + str(self.length)
 
 class UnemployedMeditation(models.Model):
 
@@ -42,7 +42,7 @@ class UnemployedMeditation(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-        return str(self.user.first_name) + " meditated to " + self.name
+        return str(self.name) + " " + str(self.length)
 
 class LossMeditation(models.Model):
 
@@ -60,7 +60,7 @@ class LossMeditation(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-        return str(self.user.first_name) + " meditated to " + self.name
+        return str(self.name) + " " + str(self.length)
 
 class MentalHealthMeditation(models.Model):
 
@@ -78,7 +78,7 @@ class MentalHealthMeditation(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-        return str(self.user.first_name) + " meditated to " + self.name
+        return str(self.name) + " " + str(self.length)
 
 class IsolatedMeditation(models.Model):
 
@@ -96,7 +96,7 @@ class IsolatedMeditation(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-        return str(self.user.first_name) + " meditated to " + self.name
+        return str(self.name) + " " + str(self.length)
 
 
 
@@ -119,7 +119,7 @@ class FrontlineUpliftingContent(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-        return str(self.user.role) + " has article " + str(self.title)
+        return str(self.title) + " " + str(self.src)
 
 
 class UnemployedUpliftingContent(models.Model):
@@ -139,7 +139,7 @@ class UnemployedUpliftingContent(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-        return str(self.user.role) + " has article " + str(self.title)
+        return str(self.title) + " " + str(self.src)
 
 class LossUpliftingContent(models.Model):
 
@@ -157,7 +157,7 @@ class LossUpliftingContent(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-        return str(self.user.role) + " has article " + str(self.title)
+        return str(self.title) + " " + str(self.src)
 
 class MentalHealthUpliftingContent(models.Model):
 
@@ -175,7 +175,8 @@ class MentalHealthUpliftingContent(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-        return str(self.user.role) + " has article " + str(self.title)
+        return str(self.title) + " " + str(self.src)
+
 
 class IsolatedUpliftingContent(models.Model):
 
@@ -193,4 +194,4 @@ class IsolatedUpliftingContent(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-        return str(self.user.role) + " has article " + str(self.title)
+        return str(self.title) + " " + str(self.src)
