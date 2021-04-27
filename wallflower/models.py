@@ -108,7 +108,7 @@ class FrontlineUpliftingNews(models.Model):
     # DATABASE FIELDS
     headline = models.CharField(max_length=200, verbose_name="Headline")
     description = models.TextField(max_length=400, verbose_name="Description")
-    image = models.ImageField(verbose_name="Article Image")
+    image = models.FileField(verbose_name="Article Image")
     author = models.CharField(max_length=150, verbose_name="Author")
     source = models.TextField(max_length=200, verbose_name="News Source")
 
@@ -128,7 +128,7 @@ class UnemployedUpliftingNews(models.Model):
     # DATABASE FIELDS
     headline = models.CharField(max_length=200, verbose_name="Headline")
     description = models.TextField(max_length=400, verbose_name="Description")
-    image = models.ImageField(verbose_name="Article Image")
+    image = models.FileField(verbose_name="Article Image")
     author = models.CharField(max_length=150, verbose_name="Author")
     source = models.TextField(max_length=200, verbose_name="News Source")
 
@@ -146,7 +146,7 @@ class LossUpliftingNews(models.Model):
     # DATABASE FIELDS
     headline = models.CharField(max_length=200, verbose_name="Headline")
     description = models.TextField(max_length=400, verbose_name="Description")
-    image = models.ImageField(verbose_name="Article Image")
+    image = models.FileField(verbose_name="Article Image")
     author = models.CharField(max_length=150, verbose_name="Author")
     source = models.TextField(max_length=200, verbose_name="News Source")
 
@@ -164,7 +164,7 @@ class MentalHealthUpliftingNews(models.Model):
     # DATABASE FIELDS
     headline = models.CharField(max_length=200, verbose_name="Headline")
     description = models.TextField(max_length=400, verbose_name="Description")
-    image = models.ImageField(verbose_name="Article Image")
+    image = models.FileField(verbose_name="Article Image")
     author = models.CharField(max_length=150, verbose_name="Author")
     source = models.TextField(max_length=200, verbose_name="News Source")
 
@@ -183,7 +183,7 @@ class IsolatedUpliftingNews(models.Model):
     # DATABASE FIELDS
     headline = models.CharField(max_length=200, verbose_name="Headline")
     description = models.TextField(max_length=400, verbose_name="Description")
-    image = models.ImageField(verbose_name="Article Image")
+    image = models.FileField(verbose_name="Article Image")
     author = models.CharField(max_length=150, verbose_name="Author")
     source = models.TextField(max_length=200, verbose_name="News Source")
     
