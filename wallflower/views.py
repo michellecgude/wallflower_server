@@ -11,11 +11,11 @@ from .models import (
     LossMeditation, 
     MentalHealthMeditation, 
     IsolatedMeditation, 
-    FrontlineUpliftingContent, 
-    UnemployedUpliftingContent, 
-    LossUpliftingContent, 
-    MentalHealthUpliftingContent, 
-    IsolatedUpliftingContent)
+    FrontlineUpliftingNews, 
+    UnemployedUpliftingNews, 
+    LossUpliftingNews, 
+    MentalHealthUpliftingNews, 
+    IsolatedUpliftingNews)
 
 from .serializers import (
     FrontlineMeditationSerializer, 
@@ -23,11 +23,11 @@ from .serializers import (
     LossMeditationSerializer, 
     MentalHealthMeditationSerializer, 
     IsolatedMeditationSerializer, 
-    FrontlineUpliftingContentSerializer, 
-    UnemployedUpliftingContentSerializer, 
-    LossUpliftingContentSerializer, 
-    MentalHealthUpliftingContentSerializer, 
-    IsolatedUpliftingContentSerializer)
+    FrontlineUpliftingNewsSerializer, 
+    UnemployedUpliftingNewsSerializer, 
+    LossUpliftingNewsSerializer, 
+    MentalHealthUpliftingNewsSerializer, 
+    IsolatedUpliftingNewsSerializer)
 
 # FRONTLINE VIEWS
 class FrontlineMeditationList(generics.ListCreateAPIView):
@@ -38,13 +38,13 @@ class FrontlineMeditationDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = FrontlineMeditation.objects.all()
     serializer_class = FrontlineMeditationSerializer
 
-class FrontlineUpliftingContentList(generics.ListCreateAPIView):
-    queryset = FrontlineUpliftingContent.objects.all()
-    serializer_class = FrontlineUpliftingContentSerializer
+class FrontlineUpliftingNewsList(generics.ListCreateAPIView):
+    queryset = FrontlineUpliftingNews.objects.all()
+    serializer_class = FrontlineUpliftingNewsSerializer
     
-class FrontlineUpliftingContentDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = FrontlineUpliftingContent.objects.all()
-    serializer_class = FrontlineUpliftingContentSerializer
+class FrontlineUpliftingNewsDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = FrontlineUpliftingNews.objects.all()
+    serializer_class = FrontlineUpliftingNewsSerializer
 
 # UNEMPLOYED VIEWS
 class UnemployedMeditationList(generics.ListCreateAPIView):
@@ -55,13 +55,13 @@ class UnemployedMeditationDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = UnemployedMeditation.objects.all()
     serializer_class = UnemployedMeditationSerializer
 
-class UnemployedUpliftingContentList(generics.ListCreateAPIView):
-    queryset = UnemployedUpliftingContent.objects.all()
-    serializer_class = UnemployedUpliftingContentSerializer
+class UnemployedUpliftingNewsList(generics.ListCreateAPIView):
+    queryset = UnemployedUpliftingNews.objects.all()
+    serializer_class = UnemployedUpliftingNewsSerializer
     
-class UnemployedUpliftingContentDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = UnemployedUpliftingContent.objects.all()
-    serializer_class = UnemployedUpliftingContentSerializer
+class UnemployedUpliftingNewsDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = UnemployedUpliftingNews.objects.all()
+    serializer_class = UnemployedUpliftingNewsSerializer
 
 # LOSS VIEWS
 class LossMeditationList(generics.ListCreateAPIView):
@@ -72,13 +72,13 @@ class LossMeditationDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = LossMeditation.objects.all()
     serializer_class = LossMeditationSerializer
 
-class LossUpliftingContentList(generics.ListCreateAPIView):
-    queryset = LossUpliftingContent.objects.all()
-    serializer_class = LossUpliftingContentSerializer
+class LossUpliftingNewsList(generics.ListCreateAPIView):
+    queryset = LossUpliftingNews.objects.all()
+    serializer_class = LossUpliftingNewsSerializer
     
-class LossUpliftingContentDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = LossUpliftingContent.objects.all()
-    serializer_class = LossUpliftingContentSerializer
+class LossUpliftingNewsDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = LossUpliftingNews.objects.all()
+    serializer_class = LossUpliftingNewsSerializer
 
 # MENTALHEALTH VIEWS
 class MentalHealthMeditationDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -89,13 +89,13 @@ class MentalHealthMeditationList(generics.ListCreateAPIView):
     queryset = MentalHealthMeditation.objects.all()
     serializer_class = MentalHealthMeditationSerializer
 
-class MentalHealthUpliftingContentList(generics.ListCreateAPIView):
-    queryset = MentalHealthUpliftingContent.objects.all()
-    serializer_class = MentalHealthUpliftingContentSerializer
+class MentalHealthUpliftingNewsList(generics.ListCreateAPIView):
+    queryset = MentalHealthUpliftingNews.objects.all()
+    serializer_class = MentalHealthUpliftingNewsSerializer
     
-class MentalHealthUpliftingContentDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = MentalHealthUpliftingContent.objects.all()
-    serializer_class = MentalHealthUpliftingContentSerializer
+class MentalHealthUpliftingNewsDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = MentalHealthUpliftingNews.objects.all()
+    serializer_class = MentalHealthUpliftingNewsSerializer
 
 # ISOLATED VIEWS
 class IsolatedMeditationDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -106,10 +106,10 @@ class IsolatedMeditationList(generics.ListCreateAPIView):
     queryset = IsolatedMeditation.objects.all()
     serializer_class = IsolatedMeditationSerializer
 
-class IsolatedUpliftingContentList(generics.ListCreateAPIView):
-    queryset = IsolatedUpliftingContent.objects.all()
-    serializer_class = IsolatedUpliftingContentSerializer
+class IsolatedUpliftingNewsList(generics.ListCreateAPIView):
+    queryset = IsolatedUpliftingNews.objects.all()
+    serializer_class = IsolatedUpliftingNewsSerializer
     
-class IsolatedUpliftingContentDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = IsolatedUpliftingContent.objects.all()
-    serializer_class = IsolatedUpliftingContentSerializer
+class IsolatedUpliftingNewsDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = IsolatedUpliftingNews.objects.all()
+    serializer_class = IsolatedUpliftingNewsSerializer

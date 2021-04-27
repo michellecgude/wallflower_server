@@ -7,11 +7,11 @@ from .models import (
     LossMeditation, 
     MentalHealthMeditation, 
     IsolatedMeditation, 
-    FrontlineUpliftingContent, 
-    UnemployedUpliftingContent, 
-    LossUpliftingContent, 
-    MentalHealthUpliftingContent, 
-    IsolatedUpliftingContent)
+    FrontlineUpliftingNews, 
+    UnemployedUpliftingNews, 
+    LossUpliftingNews, 
+    MentalHealthUpliftingNews, 
+    IsolatedUpliftingNews)
 
 # FRONTLINE SERIALIZERS
 class FrontlineMeditationSerializer(serializers.ModelSerializer):
@@ -19,9 +19,9 @@ class FrontlineMeditationSerializer(serializers.ModelSerializer):
         model = FrontlineMeditation
         fields = ("id", "user", "name", "benefit", "length", "type_of_meditation", "meditation_link")
 
-class FrontlineUpliftingContentSerializer(serializers.ModelSerializer):
+class FrontlineUpliftingNewsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = FrontlineUpliftingContent
+        model = FrontlineUpliftingNews
         fields = ("id", "user", "description", "img_url", "src", "article_link")
 
 
@@ -31,9 +31,9 @@ class UnemployedMeditationSerializer(serializers.ModelSerializer):
         model = UnemployedMeditation
         fields = ("id", "user", "name", "benefit", "length", "type_of_meditation", "meditation_link")
 
-class UnemployedUpliftingContentSerializer(serializers.ModelSerializer):
+class UnemployedUpliftingNewsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = UnemployedUpliftingContent
+        model = UnemployedUpliftingNews
         fields = ("id", "user", "description", "img_url", "src", "article_link")
 
 # LOSS SERIALIZERS
@@ -42,9 +42,9 @@ class LossMeditationSerializer(serializers.ModelSerializer):
         model = LossMeditation
         fields = ("id", "user", "name", "benefit", "length", "type_of_meditation", "meditation_link")
 
-class LossUpliftingContentSerializer(serializers.ModelSerializer):
+class LossUpliftingNewsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = LossUpliftingContent
+        model = LossUpliftingNews
         fields = ("id", "user", "description", "img_url", "src", "article_link")
 
 # MENTAL HEALTH SERIALIZERS
@@ -53,9 +53,9 @@ class MentalHealthMeditationSerializer(serializers.ModelSerializer):
         model = MentalHealthMeditation
         fields = ("id", "user", "name", "benefit", "length", "type_of_meditation", "meditation_link")
 
-class MentalHealthUpliftingContentSerializer(serializers.ModelSerializer):
+class MentalHealthUpliftingNewsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = MentalHealthUpliftingContent
+        model = MentalHealthUpliftingNews
         fields = ("id", "user", "description", "img_url", "src", "article_link")
 
 # ISOLATED SERIALIZERS
@@ -64,9 +64,9 @@ class IsolatedMeditationSerializer(serializers.ModelSerializer):
         model = IsolatedMeditation
         fields = ("id", "user", "name", "benefit", "length", "type_of_meditation", "meditation_link")
 
-class IsolatedUpliftingContentSerializer(serializers.ModelSerializer):
+class IsolatedUpliftingNewsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = IsolatedUpliftingContent
+        model = IsolatedUpliftingNews
         fields = ("id", "user", "description", "img_url", "src", "article_link")
 
 
