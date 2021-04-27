@@ -6,6 +6,28 @@ from django.conf import settings
 
 
 
+# --- USER JOURNALS ---
+class Journal(models.Model):
+
+    # RELATIONSHIP
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="User Journals")
+
+    # DATABASE FIELDS
+    journal_title = models.CharField(max_length=200, verbose_name="Journal Title")
+    journal_bodytext = models.TextField(max_length=3000, verbose_name="Journal Body")
+
+    # META
+    class Meta:
+        verbose_name = "User Journal Entry"
+        verbose_name_plural = "User Journal Entries"
+
+    # TO STRING METHOD
+    def __str__(self):
+        return str(self.journal_title) + " written by " + str(self.user.first_name)
+
+
+
+
 
 #  --- USER PERSONALIZED MEDITATIONS ---
 class FrontlineMeditation(models.Model):
