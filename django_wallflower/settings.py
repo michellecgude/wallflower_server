@@ -42,7 +42,7 @@ MIDDLEWARE = [
 
 ALLOWED_HOSTS = ['.herokuapp.com', 'https://wallflower-api.herokuapp.com', 'http://localhost:3000', 'https://wallflower-app.herokuapp.com'] 
 
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = False
 
 
 CORS_ORIGIN_WHITELIST = (
