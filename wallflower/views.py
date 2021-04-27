@@ -1,3 +1,4 @@
+from django.db.models import query
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from rest_framework import permissions, status, generics, viewsets
@@ -6,6 +7,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .models import (
+    Journal,
     FrontlineMeditation, 
     UnemployedMeditation, 
     LossMeditation, 
@@ -18,6 +20,7 @@ from .models import (
     IsolatedUpliftingNews)
 
 from .serializers import (
+    JournalSerializer,
     FrontlineMeditationSerializer, 
     UnemployedMeditationSerializer, 
     LossMeditationSerializer, 
@@ -28,6 +31,15 @@ from .serializers import (
     LossUpliftingNewsSerializer, 
     MentalHealthUpliftingNewsSerializer, 
     IsolatedUpliftingNewsSerializer)
+
+# JOURNAL VIEWS
+class JournalList(generics.ListCreateAPIView):
+    queryset = Journal.objects.all()
+    serializer_class = JournalSerializer
+
+class JournalDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Journal.objects.all()
+    serializer_class = JournalSerializer
 
 # FRONTLINE VIEWS
 class FrontlineMeditationList(generics.ListCreateAPIView):

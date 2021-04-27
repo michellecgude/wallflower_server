@@ -4,6 +4,10 @@ from django.conf.urls import url, include
 from . import views
 
 urlpatterns = [    
+    # JOURNAL URLS
+    path('journals/', views.JournalList.as_view(), name="user_journal_list"),
+    path('journals/<int:pk>', views.JournalDetail.as_view(), name="user_journal_detail"),
+
     # FRONTLINE URLS
     path('frontline-meditations/', views.FrontlineMeditationList.as_view(), name='frontline_meditation_list'),    
     path('frontline-meditations/<int:pk>', views.FrontlineMeditationDetail.as_view(), name='frontline_meditation_details'), 

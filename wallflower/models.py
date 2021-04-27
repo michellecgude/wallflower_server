@@ -10,7 +10,7 @@ from django.conf import settings
 class Journal(models.Model):
 
     # RELATIONSHIP
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="User Journals")
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="user_journals")
 
     # DATABASE FIELDS
     journal_title = models.CharField(max_length=200, verbose_name="Journal Title")
