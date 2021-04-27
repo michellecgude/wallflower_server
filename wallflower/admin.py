@@ -6,11 +6,11 @@ from .models import (
     LossMeditation, 
     MentalHealthMeditation, 
     IsolatedMeditation, 
-    FrontlineUpliftingContent, 
-    UnemployedUpliftingContent, 
-    LossUpliftingContent, 
-    MentalHealthUpliftingContent, 
-    IsolatedUpliftingContent)
+    FrontlineUpliftingNews, 
+    UnemployedUpliftingNews, 
+    LossUpliftingNews, 
+    MentalHealthUpliftingNews, 
+    IsolatedUpliftingNews)
 
 admin.site.register([
     FrontlineMeditation, 
@@ -18,8 +18,8 @@ admin.site.register([
     LossMeditation, 
     MentalHealthMeditation, 
     IsolatedMeditation, 
-    FrontlineUpliftingContent, 
-    UnemployedUpliftingContent, 
-    LossUpliftingContent, 
-    MentalHealthUpliftingContent, 
-    IsolatedUpliftingContent])
+    FrontlineUpliftingNews, 
+    UnemployedUpliftingNews, 
+    LossUpliftingNews, 
+    MentalHealthUpliftingNews, 
+    IsolatedUpliftingNews])
