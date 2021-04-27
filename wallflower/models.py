@@ -102,95 +102,95 @@ class IsolatedMeditation(models.Model):
 
 
 
-#  --- USER PERSONALIZED UPLIFTING CONTENT ---
-class FrontlineUpliftingContent(models.Model):
+#  --- USER PERSONALIZED UPLIFTING NEWS ---
+class FrontlineUpliftingNews(models.Model):
 
     # DATABASE FIELDS
-    title = models.CharField(max_length=200, verbose_name="Article Name")
-    description = models.CharField(max_length=200, verbose_name="Article Description")
-    img_url = models.URLField(max_length=500, verbose_name="Image URL")
-    src = models.CharField(max_length=200, verbose_name="Article Source")
-    article_link = models.URLField(max_length=500, verbose_name="Article URL")
+    headline = models.CharField(max_length=200, verbose_name="Headline")
+    description = models.TextField(max_length=400, verbose_name="Description")
+    image = models.ImageField(verbose_name="Article Image")
+    author = models.CharField(max_length=150, verbose_name="Author")
+    source = models.TextField(max_length=200, verbose_name="News Source")
 
     # META
     class Meta:
-        verbose_name = "Frontline User's Uplifting Content"
-        verbose_name_plural = "Frontline User Uplifting Content"
+        verbose_name = "Frontline User's Uplifting News"
+        verbose_name_plural = "Frontline User Uplifting News"
+
+    # TO STRING METHOD
+    def __str__(self):
+        return str(self.headline) + " " + str(self.author)
+
+
+class UnemployedUpliftingNews(models.Model):
+
+
+    # DATABASE FIELDS
+    headline = models.CharField(max_length=200, verbose_name="Headline")
+    description = models.TextField(max_length=400, verbose_name="Description")
+    image = models.ImageField(verbose_name="Article Image")
+    author = models.CharField(max_length=150, verbose_name="Author")
+    source = models.TextField(max_length=200, verbose_name="News Source")
+
+    # META
+    class Meta:
+        verbose_name = "Unemployed User's Uplifting News"
+        verbose_name_plural = "Unemployed User Uplifting News"
+
+    # TO STRING METHOD
+    def __str__(self):
+        return str(self.title) + " " + str(self.src)
+
+class LossUpliftingNews(models.Model):
+
+    # DATABASE FIELDS
+    headline = models.CharField(max_length=200, verbose_name="Headline")
+    description = models.TextField(max_length=400, verbose_name="Description")
+    image = models.ImageField(verbose_name="Article Image")
+    author = models.CharField(max_length=150, verbose_name="Author")
+    source = models.TextField(max_length=200, verbose_name="News Source")
+
+    # META
+    class Meta:
+        verbose_name = "Loss User's Uplifting News"
+        verbose_name_plural = "Loss User Uplifting News"
+
+    # TO STRING METHOD
+    def __str__(self):
+        return str(self.title) + " " + str(self.src)
+
+class MentalHealthUpliftingNews(models.Model):
+
+    # DATABASE FIELDS
+    headline = models.CharField(max_length=200, verbose_name="Headline")
+    description = models.TextField(max_length=400, verbose_name="Description")
+    image = models.ImageField(verbose_name="Article Image")
+    author = models.CharField(max_length=150, verbose_name="Author")
+    source = models.TextField(max_length=200, verbose_name="News Source")
+
+    # META
+    class Meta:
+        verbose_name = "Mental Health's Uplifting News"
+        verbose_name_plural = "Mental Health Uplifting News"
 
     # TO STRING METHOD
     def __str__(self):
         return str(self.title) + " " + str(self.src)
 
 
-class UnemployedUpliftingContent(models.Model):
-
-
-    # DATABASE FIELDS
-    title = models.CharField(max_length=200, verbose_name="Article Name")
-    description = models.CharField(max_length=200, verbose_name="Article Description")
-    img_url = models.URLField(max_length=500, verbose_name="Image URL")
-    src = models.CharField(max_length=200, verbose_name="Article Source")
-    article_link = models.URLField(max_length=500, verbose_name="Article URL")
-
-    # META
-    class Meta:
-        verbose_name = "Unemployed User's Uplifting Content"
-        verbose_name_plural = "Unemployed User Uplifting Content"
-
-    # TO STRING METHOD
-    def __str__(self):
-        return str(self.title) + " " + str(self.src)
-
-class LossUpliftingContent(models.Model):
+class IsolatedUpliftingNews(models.Model):
 
     # DATABASE FIELDS
-    title = models.CharField(max_length=200, verbose_name="Article Name")
-    description = models.CharField(max_length=200, verbose_name="Article Description")
-    img_url = models.URLField(max_length=500, verbose_name="Image URL")
-    src = models.CharField(max_length=200, verbose_name="Article Source")
-    article_link = models.URLField(max_length=500, verbose_name="Article URL")
-
+    headline = models.CharField(max_length=200, verbose_name="Headline")
+    description = models.TextField(max_length=400, verbose_name="Description")
+    image = models.ImageField(verbose_name="Article Image")
+    author = models.CharField(max_length=150, verbose_name="Author")
+    source = models.TextField(max_length=200, verbose_name="News Source")
+    
     # META
     class Meta:
-        verbose_name = "Loss User's Uplifting Content"
-        verbose_name_plural = "Loss User Uplifting Content"
-
-    # TO STRING METHOD
-    def __str__(self):
-        return str(self.title) + " " + str(self.src)
-
-class MentalHealthUpliftingContent(models.Model):
-
-    # DATABASE FIELDS
-    title = models.CharField(max_length=200, verbose_name="Article Name")
-    description = models.CharField(max_length=200, verbose_name="Article Description")
-    img_url = models.URLField(max_length=500, verbose_name="Image URL")
-    src = models.CharField(max_length=200, verbose_name="Article Source")
-    article_link = models.URLField(max_length=500, verbose_name="Article URL")
-
-    # META
-    class Meta:
-        verbose_name = "Mental Health's Uplifting Content"
-        verbose_name_plural = "Mental Health Uplifting Content"
-
-    # TO STRING METHOD
-    def __str__(self):
-        return str(self.title) + " " + str(self.src)
-
-
-class IsolatedUpliftingContent(models.Model):
-
-    # DATABASE FIELDS
-    title = models.CharField(max_length=200, verbose_name="Article Name")
-    description = models.CharField(max_length=200, verbose_name="Article Description")
-    img_url = models.URLField(max_length=500, verbose_name="Image URL")
-    src = models.CharField(max_length=200, verbose_name="Article Source")
-    article_link = models.URLField(max_length=500, verbose_name="Article URL")
-
-    # META
-    class Meta:
-        verbose_name = "Isolated User's Uplifting Content"
-        verbose_name_plural = "Isolated User Uplifting Content"
+        verbose_name = "Isolated User's Uplifting News"
+        verbose_name_plural = "Isolated User Uplifting News"
 
     # TO STRING METHOD
     def __str__(self):
