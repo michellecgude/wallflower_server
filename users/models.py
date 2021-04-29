@@ -12,7 +12,7 @@ class User(AbstractUser):
         ('frontline', 'Frontline Healthcare Worker'),
         ('unemployed', 'Unemployed'),
         ('bereaving', 'Lost a Loved One'),
-        ('sick', 'Sick with COVID/Or had been')
+        ('sick', 'Sick with COVID/Or had been'),
         ('mentalhealth', 'Pre Existing Mental Health Issues'),
         ('lonely', 'Lonely')
     )
