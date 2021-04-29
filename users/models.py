@@ -11,9 +11,10 @@ class User(AbstractUser):
     DEMOGRAPHIC_CHOICES = (
         ('frontline', 'Frontline Healthcare Worker'),
         ('unemployed', 'Unemployed'),
-        ('loss', 'Lost a Loved One'),
+        ('bereaving', 'Lost a Loved One'),
+        ('sick', 'Sick with COVID/Or had been'),
         ('mentalhealth', 'Pre Existing Mental Health Issues'),
-        ('isolated', 'Socially Isolated')
+        ('lonely', 'Lonely')
     )
     
     # AUTH FIELDS
