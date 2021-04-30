@@ -48,4 +48,4 @@ At the beginning, I was planning on supporting my [Wallflower](https://github.co
 
 ## Author
 
-I'm an artist turned software developer. Several years ago I was painting on canvases, now I'm painting with code. This is the first ever Django/Python API I've built with no prior knowledge. Although the end code may seem minimal, the commit history gives a more detailed view of the history behind the API.
+I'm an artist turned software developer. Several years ago I was painting on canvases, now I'm painting with code. This is the first ever Django/Python API I've built with no prior knowledge. Although the end code may seem minimal, the commit history gives a more detailed view of the history behind the API. Thanks so much for checking out my code!
