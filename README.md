@@ -44,7 +44,11 @@ Here is an example endpoint for the journals:
 
 This API has undergone major changes since its beginnings. If there's one major aspect I've learned throughout refactoring the code is learning how to be "efficient" and when to recognize where and when its happening. If it's not? Fix them quickly.
 
-At the beginning, I was planning on supporting my [Wallflower](https://github.com/michellecgude/wallflower_client) application solely through the data I'd manually add within the Django admin. Because of this, I initially began with creating detailed models, serializers, etc for the meditations, habits, journal entries, uplifting news. After taking some space from the project and revisiting it weeks later, I decided to work on the [wireframes]() and completely revamp, simplify, and make the application more meaningful in its build and interactions. This meant shaving off a lot of initial data (such as removing the habits and only having the CRUD functionality with the journal entries, removing the individualized meditations and uplifting news from the models themselves because the users weren't going to save, update, or delete the information anyways) within the Django/PSQL database & learning to be comfortable with third party APIs.
+At the beginning, I was planning on supporting my [Wallflower](https://github.com/michellecgude/wallflower_client) application solely through the data I'd manually add within the Django admin. Because of this, I initially began with creating detailed models, serializers, etc for the meditations, habits, journal entries, uplifting news.
+
+After taking some space from the project and revisiting it weeks later, I decided to work on the [wireframes]() and completely revamp, simplify, and make the application more meaningful in its build and interactions.
+
+This meant shaving off a lot of initial data (such as removing the habits and only having the CRUD functionality with the journal entries, removing the individualized meditations and uplifting news from the models themselves because the users weren't going to save, update, or delete the information anyways) within the Django/PSQL database & learning to be comfortable with third party APIs.
 
 ## Author
 
