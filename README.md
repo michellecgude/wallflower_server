@@ -30,15 +30,15 @@ Here is an example endpoint for the journals:
 
 ## Tech Stack
 
-`Python`
-`Django`
-`Postgres/PSQL`
-`curl` _(for testing endpoints)_
+> - `Python`
+> - `Django`
+> - `Postgres/PSQL`
+> - `curl` _(for testing endpoints)_
 
 ## Django Management Frameworks
 
-`JWT | JSON Web Tokens`
-`Djoser`
+> - `JWT | JSON Web Tokens`
+> - `Djoser`
 
 ## Changes/Developments
 
